@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\CDMcG\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\CDMcG\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_DefendHouse2000.939073080.00" t="ExcludeRecursive" />
+    <e p="C:\Users\CDMcG\Documents\UnityProjects\DefendHouse2000" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="code" t="Include">
+          <e p="demo" t="Include">
+            <e p="DebugPrintComponent.cs" t="Include" />
+            <e p="DebugPrintListener.cs" t="Include" />
+            <e p="RefStringWatcher.cs" t="Include" />
+          </e>
+          <e p="main-menu" t="Include">
+            <e p="MainMenuButtonPanel.cs" t="Include" />
+          </e>
+          <e p="ref-events" t="Include">
+            <e p="RefBoolEvent.cs" t="Include" />
+            <e p="RefBoolEventListener.cs" t="Include" />
+            <e p="RefDoubleEvent.cs" t="Include" />
+            <e p="RefDoubleEventListener.cs" t="Include" />
+            <e p="RefEvent.cs" t="Include" />
+            <e p="RefEventListener.cs" t="Include" />
+            <e p="RefIntEvent.cs" t="Include" />
+            <e p="RefIntEventListener.cs" t="Include" />
+            <e p="RefLongEvent.cs" t="Include" />
+            <e p="RefLongEventListener.cs" t="Include" />
+          </e>
+          <e p="ref-values" t="Include">
+            <e p="RefBool.cs" t="Include" />
+            <e p="RefDouble.cs" t="Include" />
+            <e p="RefInt.cs" t="Include" />
+            <e p="RefLong.cs" t="Include" />
+            <e p="RefString.cs" t="Include" />
+            <e p="RefValue.cs" t="Include" />
+          </e>
+          <e p="ui" t="Include">
+            <e p="ActiveMenuComponent.cs" t="Include" />
+            <e p="ActiveMenuManager.cs" t="Include" />
+            <e p="IActiveMenu.cs" t="Include" />
+            <e p="IClaimable.cs" t="Include" />
+            <e p="SliderValueDisplay.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Fonts" t="Include">
+          <e p="LICENSE.txt" t="Include" />
+          <e p="OFL.txt" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="DefendHouse2000.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
