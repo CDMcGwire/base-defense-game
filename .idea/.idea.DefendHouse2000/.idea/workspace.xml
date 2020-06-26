@@ -1,74 +1,562 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b6c2f30-d220-45e9-b470-94d74afe6e03" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="2b6c2f30-d220-45e9-b470-94d74afe6e03" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/demo/demo-mob-air.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/demo/demo-mob-air.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/demo/demo-mob-bigboi.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/demo/demo-mob-bigboi.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/beeg-skully.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/beeg-skully.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully-attack.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully-attack.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully-die.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully-die.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully-walk.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully-walk.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/actors/mob/skully/skully.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/audio.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/audio/demo-gunshot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/audio/demo-gunshot.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/audio/pickaxe-hit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/audio/pickaxe-hit.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ai.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ai/mob.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ai/mob/Drone.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ai/mob/Drone.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/components.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/components/Combatant.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/components/DamageComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/components/DefensiveModsComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/components/DefensiveModsComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/components/Mob.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/components/Mob.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffect.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectPool.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectPool.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectResolver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectResolver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectSource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectSource.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatMod.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatMod.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatModSource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatModSource.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/EffectSourceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/ModSourceComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/ModSourceComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/PayloadCompiler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/PayloadCompiler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/PayloadObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/PayloadObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/TargetLocation2D.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/core/TargetLocation2D.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/damaging.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/damaging/PhysicalDamageEffectData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/damaging/PhysicalDamageEffectData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/damaging/TimeDelayedDamageEffectData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/damaging/TimeDelayedDamageEffectData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/modifiers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/modifiers/AdditiveModData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/modifiers/AdditiveModData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/modifiers/MultiplicativeModData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/modifiers/MultiplicativeModData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/mods.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/effects/types.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/movement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/movement/AnimMoveController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/movement/AnimMoveController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/CollisionTargeter2D.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/CollisionTargeter2D.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/HitScanTargeter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/HitScanTargeter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/TargetFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/TargetFilter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/Targeter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/targeting/Targeter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/AnimAttackDriver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/AnimAttackDriver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/AttackDriver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/AttackDriver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/HitScanRangedDriver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/HitScanRangedDriver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/PhysicsRangedDriver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/PhysicsRangedDriver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/RangedAttackDriver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/RangedAttackDriver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/Weapon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/combat/weapon/Weapon.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data/livevalue.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data/livevalue/LiveDouble.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data/livevalue/LiveDouble.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data/livevalue/LiveFloat.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data/livevalue/LiveFloat.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data/livevalue/LiveLong.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/data/livevalue/LiveLong.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/AnimStateLogger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/DemoCrawlMovement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/DemoCrawlMovement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/SpriteColorChanger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/StatefulScriptableObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/StatefulScriptableObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/StatefulSoTextUpdater.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/StatefulSoTextUpdater.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/physics.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/demo/physics/DemoWaitForFixedUpdate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/managers/DefenseLevelManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/managers/DefenseLevelManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/managers/PooledProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/managers/Provider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/managers/Provider.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/managers/TimeControl.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/math.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/math/MoreMath.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/math/MoreMath.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/physics/scanners.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/physics/scanners/TargetDetector2D.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/physics/scanners/TargetDetector2D.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/player/PlayerInputAimer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/player/PlayerInputAimer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/sfx/ParticleDisabler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/sfx/SkyMover.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/sfx/SkyMover.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/sfx/Spawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/sfx/Spawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/spawning.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/spawning/MobSourceData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/spawning/MobSourceData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/spawning/MobSpawnZone.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/spawning/MobSpawnZone.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/ActiveMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/ActiveMenu.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/GameMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/GameMenu.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/MenuCloseState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/MenuOpenState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/MenuSwitcher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/ToggleOnEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/ToggleOnEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/combat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/combat/HealthSprite.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/code/ui/combat/HealthSprite.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/demo/stateful-object.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/demo/stateful-object.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects/damage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects/damage/phys-dam-10p.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects/damage/phys-dam-10p.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects/damage/phys-dam-1p.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects/damage/phys-dam-1p.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects/damage/phys-dam-delayed-30p.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/effects/damage/phys-dam-delayed-30p.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/mob-sources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/mob-sources/demo-source.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/mob-sources/demo-source.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/modifiers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/modifiers/multipliers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/modifiers/multipliers/phys-damage-5x.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/data/modifiers/multipliers/phys-damage-5x.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/events/defense.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/events/defense/level-end-event.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/events/defense/level-end-event.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/backdrops.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/backdrops/hill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/backdrops/hill.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/backdrops/sky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/backdrops/sky.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/backdrops/terrain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/backdrops/terrain.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/bad-text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/bad-text.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/bad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/bad.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/base-destroyed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/base-destroyed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/base.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/base.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/fill-mask.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/fill-mask.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/health.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/health.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/nato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/nato.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/side-bar-text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/side-bar-text.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/side-bar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/base/side-bar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/misc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/misc/arrow-right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/misc/arrow-right.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/player.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/player/player-character.psb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/player/player-character.psb.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/ui/failure-text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/ui/failure-text.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/ui/success-text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/ui/success-text.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/ui/text-shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/images/ui/text-shadow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/input/aim-test.inputactions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/input/aim-test.inputactions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-blue-shaded.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-blue-shaded.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-blue.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-blue.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-grey-shaded.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-grey-shaded.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-orange.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-orange.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/basic-yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/sprite-demo.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/materials/demo/sprite-demo.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/presets/ui/canvas.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/presets/ui/canvas/canvas-scaler-def.preset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/presets/ui/canvas/canvas-scaler-def.preset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/defense/d-exampleSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/defense/d-exampleSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/dev.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/dev/menu-testSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/dev/menu-testSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/dev/test-scriptable-objects.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/dev/test-scriptable-objects.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/dev/test-wait-for-fixed-update.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/dev/test-wait-for-fixed-update.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/main-menuSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/scenes/main-menuSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/textures/demo/walker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/textures/demo/walker.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/textures/mob.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/textures/mob/skully.psb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/textures/mob/skully.psb.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ui/anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ui/anim/round-end-open.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ui/anim/round-end-open.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ui/anim/round-end-screen.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ui/anim/round-end-screen.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_Android.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_WebGL.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/VersionControlSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RawMedia/Castle.afdesign" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RawMedia/backdrop.afdesign" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RawMedia/player-character.xcf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/base-attack.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/death-animations.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/demo_hit_effect.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/drone-attack.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/head-shot.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/horde.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/movie.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/mow-down.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/mow-down.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recordings/the-army.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DefendHouse2000/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/demo/DebugPrintComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/demo/DebugPrintComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/demo/DebugPrintListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/demo/DebugPrintListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/demo/RefStringWatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/demo/RefStringWatcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/main-menu/MainMenuButtonPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/main-menu/MainMenuButtonPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ref-events/RefEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/ref-events/RefEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ref-events/RefEventListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/ref-events/RefEventListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/ActiveMenuComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/ActiveMenuComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/ActiveMenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/ui/ActiveMenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/IActiveMenu.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/IActiveMenu.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/IClaimable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/IClaimable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/code/ui/SliderValueDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/code/ui/SliderValueDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/debug/debug-print-listener.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/debug/debug-print-listener.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/fonts/NixieOne-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/fonts/NixieOne-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/input/InputSystem.inputsettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/input/InputSystem.inputsettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/input/debug.inputactions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/input/debug.inputactions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scenes/defense/d-example.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scenes/defense/d-example.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scenes/main-menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scenes/main-menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Packages-Update.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/Packages-Update.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/code/ref-events/RefBoolEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/sfx/ParticleDisabler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/components/DefensiveModsComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ui/MenuOpenState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/managers/PooledProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/sfx/SkyMover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7C074160-DD1A-4D91-9B45-B6E4C27A3BAC/84/4ef3ca63/IReadOnlyCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectResolver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/TargetLocation2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78327B6C-3C08-4CA5-975B-799474D7A953/32/03a8e8b8/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/managers/TimeControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/damaging/PhysicalDamageEffectData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/data/livevalue/LiveFloat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78327B6C-3C08-4CA5-975B-799474D7A953/22/4e2e9ba8/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78327B6C-3C08-4CA5-975B-799474D7A953/01/52d3e602/ReadOnlyCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/DemoCrawlMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/targeting/CollisionTargeter2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/damaging/TimeDelayedDamageEffectData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/437BA245-D840-4784-B9FB-AB9B439AC908/f5/850b854f/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10021401-6059-4824-8453-0038EFB79DD7/f4/ea109216/LinkedList`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/math/MoreMath.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/0f/e184bbd0/IReadOnlyDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../DefendHouse/Assets/Scripts/Player/PlayerCharacter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/components/Combatant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/weapon/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/CombatMod.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB2FC695-7FB5-45E2-B617-C8816705AA34/d9/67d08813/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78327B6C-3C08-4CA5-975B-799474D7A953/d4/70cbb3ee/IDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_SDF.shader" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/code/ui/ActiveMenuComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.1.0-preview.2/Scripts/Runtime/TMP_SubMeshUI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/code/ui/IActiveMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/code/ui/IClaimable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/weapon/AnimAttackDriver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/weapon/RangedAttackDriver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/StatefulSoTextUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ui/MenuSwitcher.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/weapon/AttackDriver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/movement/AnimMoveController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ui/SliderValueDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/StatefulScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ui/MenuCloseState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/code/ui/ActiveMenuManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.1.0-preview.2/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.1.0-preview.2/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ui/ActiveMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/managers/DefenseLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/AnimStateLogger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/DebugPrintComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/DebugPrintListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/SpriteColorChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/targeting/Targeter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/player/PlayerInputAimer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/demo/physics/DemoWaitForFixedUpdate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/CombatModSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F56BB44B-A853-493D-87CC-C25C2E339F8A/53/acdf998f/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ai/mob/Drone.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78327B6C-3C08-4CA5-975B-799474D7A953/88/e8f86a74/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/PayloadCompiler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F56BB44B-A853-493D-87CC-C25C2E339F8A/45/e77c3717/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/PayloadObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/305EF548-BF96-468E-8605-2E724D38F7E9/e4/c72e48d1/RequiredByNativeCodeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/targeting/TargetFilter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/ModSourceComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ui/combat/HealthSprite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/main-menu/MainMenuButtonPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/spawning/MobSourceData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7C074160-DD1A-4D91-9B45-B6E4C27A3BAC/1f/21da8300/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ref-events/RefBoolEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ref-events/RefEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/sfx/Spawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ui/GameMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/ref-events/RefEventListener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7559BF97-67E7-4FF5-906F-18401F66CD57/cb/5ee0dd4d/Playable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7C074160-DD1A-4D91-9B45-B6E4C27A3BAC/58/ac802eb8/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/modifiers/MultiplicativeModData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BC8E7B41-D288-4C8D-900A-2DEB12DC9189/b7/d967a65f/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/components/Mob.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7559BF97-67E7-4FF5-906F-18401F66CD57/b8/d07faa42/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F56BB44B-A853-493D-87CC-C25C2E339F8A/00/700302dd/Bounds.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/437BA245-D840-4784-B9FB-AB9B439AC908/6f/e1de05ba/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/modifiers/AdditiveModData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78327B6C-3C08-4CA5-975B-799474D7A953/e2/b859ba85/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/862B9365-843C-4BF1-BA93-210C124BB523/de/6d394031/LinkedList`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE83287B-9D2C-49CB-A7F1-8DC22475C71F/ca/8d407752/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/weapon/PhysicsRangedDriver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/effects/core/EffectSourceComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78327B6C-3C08-4CA5-975B-799474D7A953/3d/29f59302/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98DA2062-F8D5-40E1-9AAE-F2038A83C747/9a/81d1831e/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/data/livevalue/LiveLong.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40699C02-4E8B-4DCA-9ED0-CA044E229DCC/c9/b9cb21cd/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F56BB44B-A853-493D-87CC-C25C2E339F8A/4f/a5e6fd56/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/targeting/HitScanTargeter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/data/livevalue/LiveDouble.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/physics/scanners/TargetDetector2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/weapon/HitScanRangedDriver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/spawning/MobSpawnZone.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/managers/Provider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7C074160-DD1A-4D91-9B45-B6E4C27A3BAC/65/981509b4/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/fa/5e71fb41/ReadOnlyDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/code/combat/components/DamageComponent.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Shaders/TMP_SDF.shader" />
-        <option value="$PROJECT_DIR$/Assets/code/main-menu/UpdateSliderDisplay.cs" />
-        <option value="$PROJECT_DIR$/Assets/code/main-menu/SliderPostProcessor.cs" />
-        <option value="$PROJECT_DIR$/Assets/code/main-menu/SliderValueDisplay.cs" />
-        <option value="$PROJECT_DIR$/Assets/code/ui/IActiveMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/code/demo/DebugActiveMenuEvent.cs" />
-        <option value="$PROJECT_DIR$/Assets/code/ui/ActiveMenuComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/code/ui/IClaimable.cs" />
-        <option value="$PROJECT_DIR$/Assets/code/ui/ActiveMenuManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatModSource.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/MeleeHitbox.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/ProjectileSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/MeleeWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/ImpactZone.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/core/TargetContext.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/core/PointOfContact.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/damaging/PhysicalDamageEffectData.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/TargetFilterProvider.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/WeaponTargetFilter.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/StaticTargetFilter.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/HitScanProjectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/player/PlayerInputAimer.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/ImpactWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/targeting/AttackDriver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/RangedWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/ProjectileSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/weapon/PhysicsRangedDriver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/ImpactZone2D.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/targeting/TargetReceiver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/demo/physics/DemoWaitForFixedUpdate.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/targeting/Targeter.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/targeting/HitScanTargeter.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/extensions/UnityObjectExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/core/TargetLocation2D.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/weapon/HitScanRangedDriver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectPool.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/physics/scanners/RangeScanner.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/physics/scanners/TargetDetector.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/weapon/AttackDriver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/weapon/RangedAttackDriver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/ai/mob/Drone.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/targeting/CollisionTargeter2D.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/components/DamageComponent.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/ui/combat/HealthSprite.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/movement/AnimMoveController.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/effects/core/CombatEffectResolver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/weapon/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/physics/scanners/TargetDetector2D.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/targeting/TargetFilter.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/combat/weapon/AnimAttackDriver.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/managers/AxisSort.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/managers/TimeControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/managers/Router.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/managers/EventRouter.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/managers/TopicRouter.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/ref-events/RefEvent.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/managers/DefenseLevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/code/sfx/SkyMover.cs" />
       </list>
     </option>
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="FgPgkRoM" />
+  </component>
   <component name="ProjectId" id="1Uli1JGnt9QIj4YW9kqxV87LDJo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35028517" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30038023" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="Rider.SolutionExplorerActivator" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TWShift.3" value="true" />
+    <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="C#" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Assets/code/combat" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
   </component>
@@ -81,24 +569,251 @@
       <updated>1575937366703</updated>
       <workItem from="1575937369957" duration="2973000" />
       <workItem from="1576432386260" duration="12995000" />
+      <workItem from="1578004016328" duration="828000" />
+      <workItem from="1578172667119" duration="3176000" />
+      <workItem from="1579367552419" duration="201000" />
+      <workItem from="1579368102992" duration="4732000" />
+      <workItem from="1579455580910" duration="42000" />
+      <workItem from="1579456632207" duration="16383000" />
+      <workItem from="1579549261942" duration="4086000" />
+      <workItem from="1579971453855" duration="41000" />
+      <workItem from="1579972953504" duration="3696000" />
+      <workItem from="1579996294369" duration="4334000" />
+      <workItem from="1580061174074" duration="5961000" />
+      <workItem from="1580577081442" duration="5409000" />
+      <workItem from="1580668476054" duration="13578000" />
+      <workItem from="1580772341062" duration="3517000" />
+      <workItem from="1581266786120" duration="220000" />
+      <workItem from="1581267020761" duration="6676000" />
+      <workItem from="1581787345437" duration="6859000" />
+      <workItem from="1581804943962" duration="889000" />
+      <workItem from="1581959635444" duration="1801000" />
+      <workItem from="1582337762341" duration="7192000" />
+      <workItem from="1582390168542" duration="9265000" />
+      <workItem from="1582411946667" duration="4898000" />
+      <workItem from="1582477999109" duration="16066000" />
+      <workItem from="1582585099709" duration="7034000" />
+      <workItem from="1585170455464" duration="3189000" />
+      <workItem from="1585257702873" duration="15000" />
+      <workItem from="1585258944120" duration="7178000" />
+      <workItem from="1585402143448" duration="15674000" />
+      <workItem from="1585491476148" duration="33991000" />
+      <workItem from="1587233459501" duration="163000" />
+      <workItem from="1587246087418" duration="3419000" />
+      <workItem from="1587311979796" duration="17843000" />
+      <workItem from="1587430502800" duration="4797000" />
+      <workItem from="1587517926274" duration="7014000" />
+      <workItem from="1587605274285" duration="1377000" />
+      <workItem from="1587608742604" duration="2311000" />
+      <workItem from="1587831224224" duration="12126000" />
+      <workItem from="1587856549846" duration="765000" />
+      <workItem from="1587857345824" duration="4260000" />
+      <workItem from="1587920442257" duration="16412000" />
+      <workItem from="1588110811437" duration="5467000" />
+      <workItem from="1588197568623" duration="10977000" />
+      <workItem from="1588281961793" duration="10520000" />
+      <workItem from="1588364326664" duration="1185000" />
+      <workItem from="1588447865636" duration="1120000" />
+      <workItem from="1588549242994" duration="4828000" />
+      <workItem from="1589039327553" duration="12094000" />
+      <workItem from="1589132615413" duration="11389000" />
+      <workItem from="1589161095583" duration="832000" />
+      <workItem from="1589230018834" duration="545000" />
+      <workItem from="1589230592309" duration="6056000" />
+      <workItem from="1589322774790" duration="1993000" />
+      <workItem from="1589411386055" duration="3113000" />
+      <workItem from="1589488294216" duration="6685000" />
+      <workItem from="1589637544665" duration="5122000" />
+      <workItem from="1589736480854" duration="6330000" />
+      <workItem from="1589836452642" duration="3329000" />
+      <workItem from="1590019223043" duration="2395000" />
+      <workItem from="1590023746211" duration="2661000" />
+      <workItem from="1590090463453" duration="4736000" />
+      <workItem from="1590190054779" duration="604000" />
+      <workItem from="1590253742820" duration="12864000" />
+      <workItem from="1590436311993" duration="9858000" />
+      <workItem from="1590539101615" duration="2142000" />
+      <workItem from="1590542288757" duration="131000" />
+      <workItem from="1590542448179" duration="3554000" />
+      <workItem from="1590626164538" duration="2836000" />
+      <workItem from="1590715499697" duration="2375000" />
+      <workItem from="1590801968952" duration="1712000" />
+      <workItem from="1590860460560" duration="600000" />
+      <workItem from="1590969440708" duration="622000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1119" y="629" key="#VCS_History_Cache_Settings" timestamp="1590023655477">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1119" y="629" key="#VCS_History_Cache_Settings/0.0.2560.1440/2560.0.2560.1440@0.0.2560.1440" timestamp="1590023655477" />
+    <state x="960" y="448" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585175746684">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="960" y="448" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1585175746684" />
+    <state x="1158" y="635" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.ChooseSilentCodeCleanupProfileDialog" timestamp="1585533305164">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1158" y="635" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.ChooseSilentCodeCleanupProfileDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1585533305164" />
+    <state x="1027" y="566" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1585533299040">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1027" y="566" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.2560.1440@0.0.2560.1440" timestamp="1585533299040" />
+    <state width="482" height="466" key="DebuggerActiveHint" timestamp="1589149906969">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="482" height="466" key="DebuggerActiveHint/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1589149906969" />
+    <state x="1060" y="474" key="FileChooserDialogImpl" timestamp="1590544293504">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1060" y="474" key="FileChooserDialogImpl/0.0.2560.1440/2560.0.2560.1440@0.0.2560.1440" timestamp="1590544293504" />
+    <state width="2135" height="534" key="GridCell.Tab.0.bottom" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.0.bottom/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.0.center" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.0.center/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.0.left" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.0.left/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.0.right" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.1.bottom" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.1.bottom/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.1.center" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.1.center/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.1.left" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.1.left/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.1.right" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.1.right/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.2.bottom" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.2.bottom/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.2.center" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.2.center/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.2.left" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.2.left/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.2.right" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.2.right/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.3.bottom" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.3.bottom/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.3.center" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.3.center/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.3.left" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.3.left/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state width="2135" height="534" key="GridCell.Tab.3.right" timestamp="1590291115562">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2135" height="534" key="GridCell.Tab.3.right/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590291115562" />
+    <state x="872" y="453" key="Rider.ProjectTemplateDialog.Size" timestamp="1582591739160">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="872" y="453" key="Rider.ProjectTemplateDialog.Size/0.0.2560.1440@0.0.2560.1440" timestamp="1582591739160" />
+    <state x="216" y="415" key="RiderGenerateDialog" timestamp="1589741773364">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="216" y="415" key="RiderGenerateDialog/0.0.2560.1440/2560.0.2560.1440@0.0.2560.1440" timestamp="1589741773364" />
+    <state x="2776" y="415" key="RiderGenerateDialog/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1589154029830" />
+    <state x="216" y="415" key="RiderGenerateDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1585532192548" />
+    <state x="556" y="110" width="1435" height="715" key="SettingsEditor" timestamp="1589498819341">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="556" y="110" key="SettingsEditor/0.0.2560.1440/2560.0.2560.1440@0.0.2560.1440" timestamp="1589498819341" />
+    <state x="3116" y="110" key="SettingsEditor/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1587611022825" />
+    <state x="556" y="110" width="1435" height="715" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1585531215215" />
+    <state x="958" y="322" width="644" height="795" key="find.popup" timestamp="1590544311343">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="958" y="322" width="644" height="795" key="find.popup/0.0.2560.1440/2560.0.2560.1440@0.0.2560.1440" timestamp="1590544311343" />
+    <state x="3518" y="322" width="644" height="795" key="find.popup/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1587836024024" />
+    <state x="936" y="340" key="run.anything.popup" timestamp="1589488616502">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="936" y="340" key="run.anything.popup/0.0.2560.1440/2560.0.2560.1440@0.0.2560.1440" timestamp="1589488616502" />
+    <state x="943" y="325" width="672" height="678" key="search.everywhere.popup" timestamp="1590969485368">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="943" y="325" width="672" height="678" key="search.everywhere.popup/0.0.2560.1440/2560.0.2560.1440@0.0.2560.1440" timestamp="1590969485368" />
+    <state x="3503" y="325" width="672" height="678" key="search.everywhere.popup/0.0.2560.1440/2560.0.2560.1440@2560.0.2560.1440" timestamp="1590458076539" />
+    <state x="943" y="325" width="672" height="678" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1585533301021" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
-          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/code/combat/components/DamageComponent.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/code/combat/components/DamageComponent.cs" initialLine="23">
+            <startOffsets>
+              <option value="739" />
+            </startOffsets>
+            <endOffsets>
+              <option value="765" />
+            </endOffsets>
+          </properties>
           <option name="timeStamp" value="1" />
-        </breakpoint>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/code/combat/targeting/HitScanTargeter.cs</url>
+          <line>22</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/code/combat/targeting/HitScanTargeter.cs" initialLine="22">
+            <startOffsets>
+              <option value="548" />
+            </startOffsets>
+            <endOffsets>
+              <option value="557" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

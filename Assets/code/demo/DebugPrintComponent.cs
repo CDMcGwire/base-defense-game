@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+namespace demo {
 public class DebugPrintComponent : MonoBehaviour {
 	public InputAction inputAction;
 
@@ -13,4 +14,5 @@ public class DebugPrintComponent : MonoBehaviour {
 	public void Print(string value) => Debug.Log(value);
 
 	public void Timestamp(string context) => Debug.Log($"C:{context} T:{Time.realtimeSinceStartup} F:{Time.frameCount}");
+}
 }

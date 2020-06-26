@@ -1,39 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+namespace ui {
 [CreateAssetMenu(fileName = "menu-manager", menuName = "Managers/ActiveMenu")]
 public class ActiveMenuManager : ScriptableObject {
-	private readonly Stack<ClaimedMenu> menuStack = new Stack<ClaimedMenu>();
+	private readonly Stack<ActiveMenu> menuStack = new Stack<ActiveMenu>();
 
-	public void NavigateTo(IActiveMenu menu, IClaimable claim) {
+	public void NavigateTo(ActiveMenu menu) {
 		if (menu == null) return;
 		if (menuStack.Count >= 1 && IsCurrent(menu)) return;
 
-		menuStack.Peek().menu.Deactivate();
-		menu.Activate();
-		menuStack.Push(new ClaimedMenu(menu, claim));
+		if (!menuStack.Peek().Deactivate(this)) 
+			throw new MenuManagerException($"Tried to deactivate last menu on stack \"{menuStack.Peek().name}\", but another object claimed it.");
+		if (!menu.Activate(this))
+			throw new MenuManagerException($"Tried to activate menu \"{menu.name}\" but another object has it claimed.");
+		menuStack.Push(menu);
 	}
 
 	public void Return() {
 		if (menuStack.Count < 1) return;
 		if (menuStack.Peek() != null) {
-			menuStack.Peek().menu.Deactivate();
+			if (!menuStack.Peek().Deactivate(this)) 
+				throw new MenuManagerException($"Tried to deactivate last menu on stack \"{menuStack.Peek().name}\", but another object claimed it.");
 			menuStack.Pop();
 		}
-		// TODO: If I'm using Interface references, how do I managed dead references?
 		while (menuStack.Peek() == null) menuStack.Pop();
-		menuStack.Peek().menu.Activate();
+		if (!menuStack.Peek().Activate(this))
+			throw new MenuManagerException($"Tried to activate menu \"{menuStack.Peek().name}\" but another object has it claimed.");
 	}
 
-	private bool IsCurrent(IActiveMenu menu) => ReferenceEquals(menu, menuStack.Peek().menu);
-	
-	private struct ClaimedMenu {
-		public readonly IActiveMenu menu;
-		public readonly IClaimable claim;
+	private bool IsCurrent(ActiveMenu menu) => ReferenceEquals(menu, menuStack.Peek());
+}
 
-		public ClaimedMenu(IActiveMenu menu, IClaimable claim) {
-			this.menu = menu;
-			this.claim = claim;
-		}
-	}
+public class MenuManagerException : Exception {
+	public MenuManagerException(string message) : base(message) { }
+}
 }

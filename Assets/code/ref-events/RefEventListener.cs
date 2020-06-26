@@ -2,17 +2,17 @@
 using UnityEngine.Events;
 
 [AddComponentMenu("Listener/SimpleListener", 1)]
-
 public class RefEventListener : MonoBehaviour {
-	[SerializeField]
-	private RefEvent refEvent;
+#pragma warning disable 0649
+	[SerializeField] private RefEvent refEvent;
+	[SerializeField] private UnityEvent onTrigger;
+#pragma warning restore 0649
+
 	public RefEvent RefEvent {
 		get => refEvent;
 		set => refEvent = value;
 	}
 
-	[SerializeField]
-	private UnityEvent onTrigger;
 	public UnityEvent OnTrigger => onTrigger;
 
 	public void Trigger() => onTrigger.Invoke();
