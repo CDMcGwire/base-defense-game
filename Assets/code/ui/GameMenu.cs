@@ -1,48 +1,50 @@
 ﻿using System;
+
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace ui {
 /// <summary>
-/// The GameMenu component provides an API for handling a GameObject as a typical in-game menu. Any system looking to
-/// enable the menu would call into the Open() and then the Close() method to deactivate, or alternatively the Cycle()
-/// method to have the menu immediately reopen after firing off its lifecycle events. Useful when reusing a single menu
-/// instance that is initialized on open.
-///
-/// If an animator is present on the same GameObject, this component will look for MenuOpenState and MenuCloseState
-/// StateMachineBehaviours on the animator. If found it will then delegate its event invocations to those classes,
-/// letting the animation state machine drive the lifecycle while the API methods simply trigger transitions on the
-/// animator.
-///
-/// Otherwise, the relevant events will be invoked immediately upon calling an API method.
+///   The GameMenu component provides an API for handling a GameObject as a typical
+///   in-game menu. Any system looking to enable the menu would call into the
+///   Open() and then the Close() method to deactivate, or alternatively the
+///   Cycle() method to have the menu immediately reopen after firing off its
+///   lifecycle events. Useful when reusing a single menu instance that is
+///   initialized on open. If an animator is present on the same GameObject, this
+///   component will look for MenuOpenState and MenuCloseState
+///   StateMachineBehaviours on the animator. If found it will then delegate its
+///   event invocations to those classes, letting the animation state machine drive
+///   the lifecycle while the API methods simply trigger transitions on the
+///   animator. Otherwise, the relevant events will be invoked immediately upon
+///   calling an API method.
 /// </summary>
 public class GameMenu : MonoBehaviour {
 	private static readonly int AnimFloatSpeed = Animator.StringToHash("speed");
 	private static readonly int AnimTrigClose = Animator.StringToHash("close");
 	private static readonly int AnimTrigSkip = Animator.StringToHash("skip");
 
+	private Animator animator;
+
 	[Tooltip("Speed modifier for the menu animations")] [SerializeField]
 	private float animSpeedMult = 1.0f;
+	private bool beganClose;
 
 	[Tooltip("Should the owning game object be destroyed on close?")] [SerializeField]
-	private bool destroyOnClose = false;
+	private bool destroyOnClose;
+	private bool forcedClosed = true;
+	[SerializeField] private UnityEvent onClosed = new UnityEvent();
+	[SerializeField] private UnityEvent onClosing = new UnityEvent();
+
+	private Action onNextCloseCallback;
+	[SerializeField] private UnityEvent onOpened = new UnityEvent();
 
 	[SerializeField] private UnityEvent onOpening = new UnityEvent();
-	[SerializeField] private UnityEvent onOpened = new UnityEvent();
-	[SerializeField] private UnityEvent onClosing = new UnityEvent();
-	[SerializeField] private UnityEvent onClosed = new UnityEvent();
+	private bool shouldCycle;
 
 	public UnityEvent OnOpening => onOpening;
 	public UnityEvent OnOpened => onOpened;
 	public UnityEvent OnClosing => onClosing;
 	public UnityEvent OnClosed => onClosed;
-
-	private Action onNextCloseCallback;
-
-	private Animator animator;
-	private bool shouldCycle;
-	private bool beganClose = false;
-	private bool forcedClosed = true;
 
 	private void Awake() {
 		animator = GetComponent<Animator>();
@@ -51,7 +53,9 @@ public class GameMenu : MonoBehaviour {
 		OnClosed.AddListener(Deactivate);
 	}
 
-	private void OnEnable() => Init();
+	private void OnEnable() {
+		Init();
+	}
 
 	private void OnDisable() {
 		if (forcedClosed) {
@@ -62,7 +66,9 @@ public class GameMenu : MonoBehaviour {
 		forcedClosed = true;
 	}
 
-	public void Open() => gameObject.SetActive(true);
+	public void Open() {
+		gameObject.SetActive(true);
+	}
 
 	public void Close() {
 		if (animator) {
@@ -96,7 +102,9 @@ public class GameMenu : MonoBehaviour {
 
 	private void Init() {
 		// If animated, initialize animation parameters.
-		if (animator) animator.SetFloat(AnimFloatSpeed, animSpeedMult);
+		if (animator) {
+			animator.SetFloat(AnimFloatSpeed, animSpeedMult);
+		}
 		// Otherwise invoke relevant events immediately.
 		else {
 			OnOpening.Invoke();

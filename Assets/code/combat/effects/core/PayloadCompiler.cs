@@ -3,14 +3,16 @@
 namespace combat.effects.core {
 public static class PayloadCompiler {
 	/// <summary>
-	/// Applies the rules for a payload chain to an enumerable collection of payload
-	/// objects and stores the results in the supplied list. Storing in the list is
-	/// improve memory allocation efficiency by allowing the caller to reuse a pre-allocated
-	/// object. The given list is cleared eagerly.
+	///   Applies the rules for a payload chain to an enumerable collection of payload
+	///   objects and stores the results in the supplied list. Storing in the list is
+	///   improve memory allocation efficiency by allowing the caller to reuse a
+	///   pre-allocated object. The given list is cleared eagerly.
 	/// </summary>
 	/// <param name="payloadObjects">The objects to compile into a chain.</param>
 	/// <param name="chainContainer">The list that should hold the final chain.</param>
-	/// <typeparam name="T">The sub-type of PayloadObject that the chain will contain.</typeparam>
+	/// <typeparam name="T">
+	///   The sub-type of PayloadObject that the chain will contain.
+	/// </typeparam>
 	public static void Build<T>(IEnumerable<T> payloadObjects, List<T> chainContainer) where T : PayloadObject<T> {
 		chainContainer.Clear();
 		// Group
@@ -41,7 +43,7 @@ public static class PayloadCompiler {
 			var stackedList = new List<T>();
 			var stackedEffect = filteredList[0];
 			var stackCount = 1;
-			for (var i = 1; i < filteredList.Count; i++) {
+			for (var i = 1; i < filteredList.Count; i++)
 				if (filteredList[i].GetType() == stackedEffect.GetType()) {
 					stackedEffect = stackedEffect.Stack(filteredList[i], ++stackCount);
 				}
@@ -50,17 +52,18 @@ public static class PayloadCompiler {
 					stackedEffect = filteredList[i];
 					stackCount = 1;
 				}
-			}
 			stackedList.Add(stackedEffect); // Put last effect onto the list
 			chainContainer.AddRange(stackedList);
 		}
 	}
 
 	/// <summary>
-	/// Shorthand method to compile a collection of Mods sorted by kind.
+	///   Shorthand method to compile a collection of Mods sorted by kind.
 	/// </summary>
 	/// <param name="modsByKind">The pre-sorted mods.</param>
-	/// <param name="modsContainer">The dictionary that should hold the final chains according to their kind.</param>
+	/// <param name="modsContainer">
+	///   The dictionary that should hold the final chains according to their kind.
+	/// </param>
 	public static void BuildModChains(
 		IReadOnlyDictionary<string, List<CombatMod>> modsByKind,
 		ModsByKind modsContainer
@@ -76,11 +79,12 @@ public static class PayloadCompiler {
 }
 
 public class ModsByKind : Dictionary<string, IReadOnlyList<CombatMod>> {
-	public IReadOnlyList<CombatMod> OfKind(string kind)
-		=> ContainsKey(kind)
+	public IReadOnlyList<CombatMod> Global => OfKind(CombatMod.Global);
+
+	public IReadOnlyList<CombatMod> OfKind(string kind) {
+		return ContainsKey(kind)
 			? this[kind]
 			: new List<CombatMod>(0);
-	
-	public IReadOnlyList<CombatMod> Global => OfKind(CombatMod.Global);
+	}
 }
 }

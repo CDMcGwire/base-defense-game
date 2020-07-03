@@ -5,6 +5,8 @@ namespace demo {
 public class StatefulScriptableObject : ScriptableObject {
 	public string value = "";
 
-	public void AddStuff(string stuff) => value += stuff;
+	public void AddStuff(string stuff) {
+		value += stuff;
+	}
 }
 }

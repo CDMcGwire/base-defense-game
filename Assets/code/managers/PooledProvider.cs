@@ -1,17 +1,12 @@
 ﻿using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace managers {
 public class PooledProvider : Provider {
-#pragma warning disable 0649
-	[SerializeField] private GameObject template;
-	[SerializeField] private int initialInstances;
-	[SerializeField] private int maxInstances;
-	[SerializeField] private bool lazyInstantiate;
-#pragma warning restore 0649
+	private readonly HashSet<int> onLoan = new HashSet<int>();
 
 	private readonly LinkedList<GameObject> pool = new LinkedList<GameObject>();
-	private readonly HashSet<int> onLoan = new HashSet<int>();
 
 	private void Awake() {
 		if (lazyInstantiate) return;
@@ -59,7 +54,15 @@ public class PooledProvider : Provider {
 	public class Reclaimer : MonoBehaviour {
 		internal PooledProvider owner;
 
-		private void OnDisable() => owner.Return(gameObject);
+		private void OnDisable() {
+			owner.Return(gameObject);
+		}
 	}
+#pragma warning disable 0649
+	[SerializeField] private GameObject template;
+	[SerializeField] private int initialInstances;
+	[SerializeField] private int maxInstances;
+	[SerializeField] private bool lazyInstantiate;
+#pragma warning restore 0649
 }
 }

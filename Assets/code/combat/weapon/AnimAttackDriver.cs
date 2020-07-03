@@ -2,13 +2,6 @@
 
 namespace combat.weapon {
 public class AnimAttackDriver : AttackDriver {
-#pragma warning disable 0649
-	[SerializeField] private string animTriggerName;
-	[SerializeField] private Animator animator;
-	[SerializeField] private AudioSource audioSource;
-	[SerializeField] private AudioClip audioClip;
-#pragma warning restore 0649
-
 	private int triggerHash;
 
 	private void Awake() {
@@ -16,11 +9,17 @@ public class AnimAttackDriver : AttackDriver {
 		triggerHash = Animator.StringToHash(animTriggerName);
 	}
 
-	public override void Begin() => animator.SetTrigger(triggerHash);
+	public override void Begin() {
+		animator.SetTrigger(triggerHash);
+	}
 
-	public override void Release() => animator.ResetTrigger(triggerHash);
+	public override void Release() {
+		animator.ResetTrigger(triggerHash);
+	}
 
-	public void ClearTargets() => Weapon.ClearTargetingMemory();
+	public void ClearTargets() {
+		Weapon.ClearTargetingMemory();
+	}
 
 	public void SignalAttackEnd() {
 		Weapon.ClearTargetingMemory();
@@ -30,5 +29,11 @@ public class AnimAttackDriver : AttackDriver {
 	public void PlayAttackSound() {
 		if (audioSource && audioClip) audioSource.PlayOneShot(audioClip);
 	}
+#pragma warning disable 0649
+	[SerializeField] private string animTriggerName;
+	[SerializeField] private Animator animator;
+	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private AudioClip audioClip;
+#pragma warning restore 0649
 }
 }

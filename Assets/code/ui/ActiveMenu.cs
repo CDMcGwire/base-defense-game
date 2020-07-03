@@ -3,12 +3,12 @@
 namespace ui {
 [RequireComponent(typeof(CanvasGroup))]
 public class ActiveMenu : MonoBehaviour {
-	[SerializeField] private bool hideOnDeactivate = true;
-	[SerializeField] [Range(0.0f, 1.0f)] private float inactiveAlpha = 1.0f;
 	[SerializeField] private bool blockWhenInactive = true;
+	private CanvasGroup canvasGroup;
 
 	private Object claimer;
-	private CanvasGroup canvasGroup;
+	[SerializeField] private bool hideOnDeactivate = true;
+	[SerializeField] [Range(0.0f, 1.0f)] private float inactiveAlpha = 1.0f;
 	private float originalAlpha = 1.0f;
 
 	private void Awake() {

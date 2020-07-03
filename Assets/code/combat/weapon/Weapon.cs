@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using combat.components;
 using combat.effects.core;
 using combat.targeting;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace combat.weapon {
 public class Weapon : MonoBehaviour {
-#pragma warning disable 0649
-	[SerializeField] private List<string> filteredTargetTypes = new List<string>();
-	[SerializeField] private AttackDriver driver;
-	[SerializeField] private WeaponEvent onAttackEnd = new WeaponEvent();
-#pragma warning restore 0649
-
-	private readonly HashSet<int> targetFilter = new HashSet<int>();
 	private readonly HashSet<int> activeTargets = new HashSet<int>();
 	private readonly HashSet<int> ignoredTargets = new HashSet<int>();
+
+	private readonly HashSet<int> targetFilter = new HashSet<int>();
 
 	public Combatant Owner { get; set; }
 	public WeaponEvent OnAttackEnd => onAttackEnd;
@@ -26,9 +24,13 @@ public class Weapon : MonoBehaviour {
 		TargetFilter.Build(filteredTargetTypes, targetFilter);
 	}
 
-	public void BeginAttack() => driver.Begin();
+	public void BeginAttack() {
+		driver.Begin();
+	}
 
-	public void ReleaseAttack() => driver.Release();
+	public void ReleaseAttack() {
+		driver.Release();
+	}
 
 	public void HandleInput(InputAction.CallbackContext context) {
 		if (context.started)
@@ -67,10 +69,16 @@ public class Weapon : MonoBehaviour {
 		ignoredTargets.Clear();
 	}
 
-	private static CombatEffectResolver GetTargetResolver(TargetLocation2D hit)
-		=> ReferenceEquals(hit.rigidbody, null)
+	private static CombatEffectResolver GetTargetResolver(TargetLocation2D hit) {
+		return ReferenceEquals(hit.rigidbody, null)
 			? hit.collider.GetComponent<CombatEffectResolver>()
 			: hit.rigidbody.GetComponent<CombatEffectResolver>();
+	}
+#pragma warning disable 0649
+	[SerializeField] private List<string> filteredTargetTypes = new List<string>();
+	[SerializeField] private AttackDriver driver;
+	[SerializeField] private WeaponEvent onAttackEnd = new WeaponEvent();
+#pragma warning restore 0649
 }
 
 public readonly struct AttackInfo {

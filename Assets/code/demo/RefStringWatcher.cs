@@ -3,10 +3,11 @@ using UnityEngine.UI;
 
 namespace demo {
 public class RefStringWatcher : MonoBehaviour {
+	public Text textElement;
 	public RefString value;
 
-	public Text textElement;
-
-	public void Update() => textElement.text = value.Current;
+	public void Update() {
+		textElement.text = value.Current;
+	}
 }
 }

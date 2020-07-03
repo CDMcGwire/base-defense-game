@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using combat.components;
+
 using UnityEngine;
+
 using Random = UnityEngine.Random;
 
 namespace spawning {
 [CreateAssetMenu(fileName = "mob-source", menuName = "Combat/Enemy/Mob Source", order = 0)]
 public class MobSourceData : ScriptableObject, ISerializationCallbackReceiver {
-#pragma warning disable 0649
-	[SerializeField] private List<PeriodicSpawnEntry> periodicSpawnEntries = new List<PeriodicSpawnEntry>();
-	[SerializeField] private List<TimedSpawn> scriptedSpawnEntries = new List<TimedSpawn>();
-#pragma warning restore 0649
-
 	private readonly SortedList<float, TimedSpawn> sortedScriptedSpawns = new SortedList<float, TimedSpawn>();
-
-	public MobSource NewValue(float startTime)
-		=> new MobSource(startTime, periodicSpawnEntries, sortedScriptedSpawns);
 
 	public void OnBeforeSerialize() { }
 
@@ -23,13 +18,21 @@ public class MobSourceData : ScriptableObject, ISerializationCallbackReceiver {
 		foreach (var entry in scriptedSpawnEntries)
 			sortedScriptedSpawns.Add(entry.Time, entry);
 	}
+
+	public MobSource NewValue(float startTime) {
+		return new MobSource(startTime, periodicSpawnEntries, sortedScriptedSpawns);
+	}
+#pragma warning disable 0649
+	[SerializeField] private List<PeriodicSpawnEntry> periodicSpawnEntries = new List<PeriodicSpawnEntry>();
+	[SerializeField] private List<TimedSpawn> scriptedSpawnEntries = new List<TimedSpawn>();
+#pragma warning restore 0649
 }
 
 public class MobSource {
-	private float time;
-	private readonly IReadOnlyList<PeriodicSpawnEntry> periodicSpawnEntries;
 	private readonly List<TimedSpawn> nextPeriodicSpawns;
+	private readonly IReadOnlyList<PeriodicSpawnEntry> periodicSpawnEntries;
 	private readonly Queue<TimedSpawn> scriptedSpawnQueue;
+	private float time;
 
 	public MobSource(
 		float startTime,
@@ -49,6 +52,9 @@ public class MobSource {
 					: entry.Next(time)
 			);
 	}
+
+	private bool ShouldSpawnNextScripted
+		=> scriptedSpawnQueue.Count > 0 && time >= scriptedSpawnQueue.Peek().Time;
 
 	public void NextSpawns(float deltaTime, List<Mob> output) {
 		time += deltaTime;
@@ -70,9 +76,6 @@ public class MobSource {
 		while (ShouldSpawnNextScripted)
 			output.Add(scriptedSpawnQueue.Dequeue().Mob);
 	}
-
-	private bool ShouldSpawnNextScripted
-		=> scriptedSpawnQueue.Count > 0 && time >= scriptedSpawnQueue.Peek().Time;
 }
 
 [Serializable]

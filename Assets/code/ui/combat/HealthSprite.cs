@@ -1,18 +1,15 @@
 ﻿using System;
+
 using combat.components;
+
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace ui.combat {
 public class HealthSprite : MonoBehaviour {
-#pragma warning disable 0649
-	[SerializeField] private DamageComponent target;
-	[SerializeField] private GameObject mask;
-	[SerializeField] private ScaleDirection scaleDirection = ScaleDirection.Y;
-#pragma warning restore 0649
+	private UnityAction<DamageReport> handleDamageEvent;
 
 	private float initialScale;
-	private UnityAction<DamageReport> handleDamageEvent;
 
 	private void Awake() {
 		switch (scaleDirection) {
@@ -42,7 +39,9 @@ public class HealthSprite : MonoBehaviour {
 		target.OnDamaged.RemoveListener(handleDamageEvent);
 	}
 
-	private void Start() => UpdateBar(target.CurrentHealth, target.MaxHealth);
+	private void Start() {
+		UpdateBar(target.CurrentHealth, target.MaxHealth);
+	}
 
 	private void UpdateBar(long current, long max) {
 		var localScale = mask.transform.localScale;
@@ -64,11 +63,18 @@ public class HealthSprite : MonoBehaviour {
 		mask.transform.localScale = localScale;
 	}
 
-	private float CalcScale(long current, long max)
-		=> Mathf.Clamp(current / (float) max, 0, 1) * initialScale;
+	private float CalcScale(long current, long max) {
+		return Mathf.Clamp(current / (float) max, 0, 1) * initialScale;
+	}
 
-	public void HandleDamageEvent(DamageReport report)
-		=> UpdateBar(report.currentHealth, report.maxHealth);
+	public void HandleDamageEvent(DamageReport report) {
+		UpdateBar(report.currentHealth, report.maxHealth);
+	}
+#pragma warning disable 0649
+	[SerializeField] private DamageComponent target;
+	[SerializeField] private GameObject mask;
+	[SerializeField] private ScaleDirection scaleDirection = ScaleDirection.Y;
+#pragma warning restore 0649
 }
 
 [Serializable]

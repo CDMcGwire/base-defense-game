@@ -6,6 +6,8 @@ public class StatefulSoTextUpdater : MonoBehaviour {
 	public StatefulScriptableObject data;
 	public Text text;
 
-	public void Refresh() => text.text = data.value;
+	public void Refresh() {
+		text.text = data.value;
+	}
 }
 }

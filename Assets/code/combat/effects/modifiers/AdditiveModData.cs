@@ -1,5 +1,7 @@
 ﻿using System;
+
 using combat.effects.core;
+
 using UnityEngine;
 
 namespace combat.effects.modifiers {

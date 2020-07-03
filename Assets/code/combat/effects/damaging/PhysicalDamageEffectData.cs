@@ -1,7 +1,11 @@
 ﻿using System;
+
+using combat.components;
 using combat.effects.core;
 using combat.effects.modifiers;
+
 using data.livevalue;
+
 using UnityEngine;
 
 namespace combat.effects.damaging {

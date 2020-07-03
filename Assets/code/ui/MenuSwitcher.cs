@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace ui {
 public class MenuSwitcher : MonoBehaviour {
-#pragma warning disable 0649
-	[SerializeField] private string initialMenuName = "";
-	[SerializeField] private bool rootOnDisable = true;
-	[SerializeField] private GameMenuGroupEntry[] menus;
-#pragma warning restore 0649
+	private readonly LinkedList<string> history = new LinkedList<string>();
 
 	private readonly Dictionary<string, GameMenu> menuLookup = new Dictionary<string, GameMenu>();
-	private readonly LinkedList<string> history = new LinkedList<string>();
 
 	private string currentMenuName = "";
 
@@ -55,11 +51,13 @@ public class MenuSwitcher : MonoBehaviour {
 
 	public void Return() {
 		if (history.Count < 1) return;
-		
+
 		var currentMenu = menuLookup[currentMenuName];
 		currentMenuName = history.Last.Value;
-		
-		if (currentMenuName.Length < 1) currentMenu.Close();
+
+		if (currentMenuName.Length < 1) {
+			currentMenu.Close();
+		}
 		else {
 			var lastMenu = menuLookup[currentMenuName];
 			currentMenu.Close(lastMenu.Open);
@@ -69,10 +67,12 @@ public class MenuSwitcher : MonoBehaviour {
 
 	public void Root() {
 		if (history.Count < 1) return;
-		
+
 		var currentMenu = menuLookup[currentMenuName];
 
-		if (initialMenuName.Length < 1) currentMenu.Close();
+		if (initialMenuName.Length < 1) {
+			currentMenu.Close();
+		}
 		else {
 			currentMenuName = initialMenuName;
 			var initialMenu = menuLookup[currentMenuName];
@@ -88,6 +88,11 @@ public class MenuSwitcher : MonoBehaviour {
 			entry.menu.gameObject.SetActive(false);
 		}
 	}
+#pragma warning disable 0649
+	[SerializeField] private string initialMenuName = "";
+	[SerializeField] private bool rootOnDisable = true;
+	[SerializeField] private GameMenuGroupEntry[] menus;
+#pragma warning restore 0649
 }
 
 [Serializable]

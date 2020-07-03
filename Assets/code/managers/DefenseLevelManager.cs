@@ -1,14 +1,10 @@
 ﻿using System;
+
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace managers {
 public class DefenseLevelManager : MonoBehaviour {
-#pragma warning disable 0649
-	[SerializeField] private float dayLength = 120f;
-	[SerializeField] private UnityEvent onDayEnd = new UnityEvent();
-#pragma warning restore 0649
-
 	public UnityEvent OnDayEnd => onDayEnd;
 
 	public float DayTimer { get; set; }
@@ -23,5 +19,9 @@ public class DefenseLevelManager : MonoBehaviour {
 		DayTimer += Time.deltaTime;
 		if (DayTimer >= dayLength) OnDayEnd.Invoke();
 	}
+#pragma warning disable 0649
+	[SerializeField] private float dayLength = 120f;
+	[SerializeField] private UnityEvent onDayEnd = new UnityEvent();
+#pragma warning restore 0649
 }
 }

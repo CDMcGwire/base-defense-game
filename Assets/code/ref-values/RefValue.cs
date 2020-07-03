@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 public class RefValue<T> : ScriptableObject {
+	private T current;
+
+	private bool dirty;
 	[SerializeField]
 	private T initial;
 	public T Initial => initial;
 
-	private bool dirty = false;
-
-	private T current;
 	public T Current {
 		get => dirty ? current : initial;
 		set {
@@ -16,7 +16,9 @@ public class RefValue<T> : ScriptableObject {
 		}
 	}
 
-	public void OnEnable() => Current = initial;
+	public void OnEnable() {
+		Current = initial;
+	}
 
 	public void Save() {
 		initial = Current;

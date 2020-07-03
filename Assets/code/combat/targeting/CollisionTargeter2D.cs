@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+
 using combat.effects.core;
+
 using UnityEngine;
 
 namespace combat.targeting {
@@ -23,11 +25,13 @@ public class CollisionTargeter2D : Targeter {
 				contact.otherCollider.bounds.center,
 				contact.rigidbody
 			);
-			
+
 			Weapon.HandleTarget(targetLocation, EffectPool.Payload);
 		}
 	}
 
-	public override void Activate() => enabled = true;
+	public override void Activate() {
+		enabled = true;
+	}
 }
 }

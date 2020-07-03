@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+
 using combat.components;
+
 using UnityEngine;
 
 namespace combat.effects.core {
 /// <summary>
-/// Sandbox object that provides an effect with all the systems it wants to interact with
-/// on a target object, if present.
+///   Sandbox object that provides an effect with all the systems it wants to
+///   interact with on a target object, if present.
 /// </summary>
 [RequireComponent(typeof(DefensiveModsComponent))]
 public class CombatEffectResolver : MonoBehaviour {
@@ -24,9 +26,7 @@ public class CombatEffectResolver : MonoBehaviour {
 		IReadOnlyList<TargetLocation2D> hits
 	) {
 		var baseMods = DefensiveModsSource.BaseMods;
-		foreach (var hit in hits) {
-			ApplyPayloadAtHit(origin, payload, hit, baseMods);
-		}
+		foreach (var hit in hits) ApplyPayloadAtHit(origin, payload, hit, baseMods);
 	}
 
 	public void ResolvePayload(

@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace combat.effects.core {
 /// <summary>
-/// Provides additional modifiers to apply to an effect if it applies to an individual hit location on the target.
+///   Provides additional modifiers to apply to an effect if it applies to an
+///   individual hit location on the target.
 /// </summary>
 [Serializable]
 public class CombatModSource : ISerializationCallbackReceiver {
-#pragma warning disable 0649
-	[SerializeField] private string id = "default-source";
-	[SerializeField] private List<PayloadDataSource<CombatMod>> modData;
-#pragma warning restore 0649
+	private readonly Dictionary<string, List<CombatMod>> modsByKind = new Dictionary<string, List<CombatMod>>();
 
 	public string Id => id;
-
-	private readonly Dictionary<string, List<CombatMod>> modsByKind = new Dictionary<string, List<CombatMod>>();
 
 	public IReadOnlyDictionary<string, List<CombatMod>> ModsByKind => modsByKind;
 
@@ -30,5 +27,9 @@ public class CombatModSource : ISerializationCallbackReceiver {
 			modsByKind[mod.Kind].Add(mod);
 		}
 	}
+#pragma warning disable 0649
+	[SerializeField] private string id = "default-source";
+	[SerializeField] private List<PayloadDataSource<CombatMod>> modData;
+#pragma warning restore 0649
 }
 }

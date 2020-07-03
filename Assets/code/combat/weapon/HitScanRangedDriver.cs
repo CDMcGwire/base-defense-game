@@ -1,14 +1,19 @@
 ﻿using combat.targeting;
+
 using UnityEngine;
 
 namespace combat.weapon {
 public class HitScanRangedDriver : RangedAttackDriver {
-	#pragma warning disable 0649
+#pragma warning disable 0649
 	[SerializeField] private HitScanTargeter targeter;
-	#pragma warning restore 0649
-	
-	protected override void OnFire() => targeter.Activate();
+#pragma warning restore 0649
 
-	private void LateUpdate() => Weapon.ClearTargetingMemory();
+	protected override void OnFire() {
+		targeter.Activate();
+	}
+
+	private void LateUpdate() {
+		Weapon.ClearTargetingMemory();
+	}
 }
 }

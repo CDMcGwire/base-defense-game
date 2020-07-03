@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace ui {
@@ -11,7 +12,7 @@ public class ActiveMenuManager : ScriptableObject {
 		if (menu == null) return;
 		if (menuStack.Count >= 1 && IsCurrent(menu)) return;
 
-		if (!menuStack.Peek().Deactivate(this)) 
+		if (!menuStack.Peek().Deactivate(this))
 			throw new MenuManagerException($"Tried to deactivate last menu on stack \"{menuStack.Peek().name}\", but another object claimed it.");
 		if (!menu.Activate(this))
 			throw new MenuManagerException($"Tried to activate menu \"{menu.name}\" but another object has it claimed.");
@@ -21,7 +22,7 @@ public class ActiveMenuManager : ScriptableObject {
 	public void Return() {
 		if (menuStack.Count < 1) return;
 		if (menuStack.Peek() != null) {
-			if (!menuStack.Peek().Deactivate(this)) 
+			if (!menuStack.Peek().Deactivate(this))
 				throw new MenuManagerException($"Tried to deactivate last menu on stack \"{menuStack.Peek().name}\", but another object claimed it.");
 			menuStack.Pop();
 		}
@@ -30,7 +31,9 @@ public class ActiveMenuManager : ScriptableObject {
 			throw new MenuManagerException($"Tried to activate menu \"{menuStack.Peek().name}\" but another object has it claimed.");
 	}
 
-	private bool IsCurrent(ActiveMenu menu) => ReferenceEquals(menu, menuStack.Peek());
+	private bool IsCurrent(ActiveMenu menu) {
+		return ReferenceEquals(menu, menuStack.Peek());
+	}
 }
 
 public class MenuManagerException : Exception {

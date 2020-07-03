@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+
 using UnityEngine;
 
 namespace demo.physics {
 public class DemoWaitForFixedUpdate : MonoBehaviour {
-	private long updates = 0;
-	private long collisions = 0;
-	
+	private long collisions;
+	private long updates;
+
 	private void FixedUpdate() {
 		updates++;
 		Debug.Log($"Fixed Update Frame: {updates}; Collision Count = {collisions}");

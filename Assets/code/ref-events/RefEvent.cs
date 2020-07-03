@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+
 using JetBrains.Annotations;
+
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "event", menuName = "EventAssets/Simple", order = 1)]
@@ -9,8 +11,9 @@ public class RefEvent : ScriptableObject {
 	private readonly object syncObject = new object();
 	private bool triggering;
 
-	public void Add(RefEventListener listener)
-		=> _ = listeners.Add(listener);
+	public void Add(RefEventListener listener) {
+		_ = listeners.Add(listener);
+	}
 
 	public void Remove(RefEventListener listener) {
 		if (triggering) readyToRemove.Add(listener);
@@ -40,8 +43,9 @@ public class RefEvent<T> : ScriptableObject {
 	private readonly object syncObject = new object();
 	private bool triggering;
 
-	public void Add(RefEventListener<T> listener)
-		=> _ = listeners.Add(listener);
+	public void Add(RefEventListener<T> listener) {
+		_ = listeners.Add(listener);
+	}
 
 	public void Remove(RefEventListener<T> listener) {
 		if (triggering) readyToRemove.Add(listener);

@@ -1,24 +1,20 @@
 ﻿using System;
+
 using UnityEngine;
 
 namespace combat.weapon {
 public abstract class RangedAttackDriver : AttackDriver {
-#pragma warning disable 0649
-	[Header("Firing Characteristics")]
-	[SerializeField] private FireMode fireMode = FireMode.SEMI;
-	[SerializeField] private float minInterval = 0.05f;
-	[SerializeField] private int roundsPerShot = 1;
-	[SerializeField] private int roundsPerBurst = 3;
+	[Serializable]
+	public enum FireMode {
+		AUTO,
+		SEMI,
+		BURST
+	}
 
-	[Space(8)] [Header("Effects")]
-	[SerializeField] private AudioSource audioSource;
-	[SerializeField] private AudioClip shotSound;
-	[SerializeField] private new ParticleSystem particleSystem;
-#pragma warning restore 0649
+	private int remainingBurstRounds;
 
-	private float shotTimer = 0f;
-	private bool triggerHeld = false;
-	private int remainingBurstRounds = 0;
+	private float shotTimer;
+	private bool triggerHeld;
 
 	private void Update() {
 		if (shotTimer > 0) {
@@ -63,12 +59,17 @@ public abstract class RangedAttackDriver : AttackDriver {
 	}
 
 	protected abstract void OnFire();
+#pragma warning disable 0649
+	[Header("Firing Characteristics")]
+	[SerializeField] private FireMode fireMode = FireMode.SEMI;
+	[SerializeField] private float minInterval = 0.05f;
+	[SerializeField] private int roundsPerShot = 1;
+	[SerializeField] private int roundsPerBurst = 3;
 
-	[Serializable]
-	public enum FireMode {
-		AUTO,
-		SEMI,
-		BURST
-	}
+	[Space(8)] [Header("Effects")]
+	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private AudioClip shotSound;
+	[SerializeField] private new ParticleSystem particleSystem;
+#pragma warning restore 0649
 }
 }

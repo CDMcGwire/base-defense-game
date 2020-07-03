@@ -8,6 +8,8 @@ public class Mob : Combatant {
 
 	public bool Airborne => airborne;
 
-	public void Die() => Destroy(gameObject);
+	public void Die() {
+		Destroy(gameObject);
+	}
 }
 }

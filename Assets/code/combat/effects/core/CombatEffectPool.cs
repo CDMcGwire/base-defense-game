@@ -1,28 +1,23 @@
 ﻿using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace combat.effects.core {
 public class CombatEffectPool : MonoBehaviour {
-	#pragma warning disable 0649
-	[SerializeField] private EffectSourceComponent baseEffectSource;
-	[SerializeField] private ModSourceComponent baseModSource;
-	[SerializeField] private float minRecalculateTime = 1f;
-	#pragma warning restore 0649
-	
+	private readonly List<CombatEffect> effectChain = new List<CombatEffect>();
+
 	// These collections are reused every time the effect chain is recalculated to reduce allocation costs.
 	// Am I pre-optimizing too much? Maybe. But I've always been told allocating collections is expensive af
 	// and this thing is already looking like a computer vision algorithm.
 	private readonly Dictionary<string, CombatEffectSource> effectSources = new Dictionary<string, CombatEffectSource>();
-	private readonly Dictionary<string, CombatModSource> modSources = new Dictionary<string, CombatModSource>();
-
-	private readonly List<CombatEffect> effectChain = new List<CombatEffect>();
 	private readonly ModsByKind modChainsByKind = new ModsByKind();
+	private readonly Dictionary<string, CombatModSource> modSources = new Dictionary<string, CombatModSource>();
 
 	// These variables are for limiting how frequently this rather expensive calculation process can occur.
 	// When the list of effect and mod sources is modified, the flag is set to trigger the compilation on LateUpdate, once
 	// All modifications for the frame have been collected.
 	private bool modifiedThisFrame = true;
-	private float recalculateTimer = 0;
+	private float recalculateTimer;
 
 	public IReadOnlyList<CombatEffect> Payload => effectChain;
 
@@ -107,5 +102,10 @@ public class CombatEffectPool : MonoBehaviour {
 			if (modsOfKind.Count > 0) effectChain[i] = effectChain[i].AddMods(modsOfKind);
 		}
 	}
+#pragma warning disable 0649
+	[SerializeField] private EffectSourceComponent baseEffectSource;
+	[SerializeField] private ModSourceComponent baseModSource;
+	[SerializeField] private float minRecalculateTime = 1f;
+#pragma warning restore 0649
 }
 }

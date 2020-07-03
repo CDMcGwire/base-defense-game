@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
+
 using combat.components;
 using combat.effects.core;
 using combat.effects.modifiers;
+
 using data.livevalue;
+
 using UnityEngine;
 
 namespace combat.effects.damaging {
@@ -12,8 +15,8 @@ public class TimeDelayedDamageEffectData : CombatEffectData<TimeDelayedDamageEff
 
 [Serializable]
 public class TimeDelayedDamageEffect : CombatEffect {
-	[SerializeField] private LiveFloat delay = new LiveFloat(1f);
 	[SerializeField] private LiveLong amount = new LiveLong(1);
+	[SerializeField] private LiveFloat delay = new LiveFloat(1f);
 
 	public override CombatEffect Stack(CombatEffect next, int stackCount) {
 		if (next is TimeDelayedDamageEffect delayedEffect)
