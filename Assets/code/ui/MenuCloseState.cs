@@ -1,18 +1,15 @@
-﻿using System;
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ui {
 public class MenuCloseState : StateMachineBehaviour {
-	public event Action OnClosing;
-	public event Action OnClosed;
+	public GameMenu GameMenu { get; set; }
 
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		OnClosing?.Invoke();
+		GameMenu.ChangeState(GameMenu.MenuState.Closing);
 	}
 
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		OnClosed?.Invoke();
+		GameMenu.ChangeState(GameMenu.MenuState.Closed);
 	}
 }
 }

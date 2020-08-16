@@ -1,18 +1,15 @@
-﻿using System;
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ui {
 public class MenuOpenState : StateMachineBehaviour {
-	public event Action OnOpening;
-	public event Action OnOpened;
+	public GameMenu GameMenu { get; set; }
 
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		OnOpening?.Invoke();
+		GameMenu.ChangeState(GameMenu.MenuState.Opening);
 	}
 
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		OnOpened?.Invoke();
+		GameMenu.ChangeState(GameMenu.MenuState.Open);
 	}
 }
 }

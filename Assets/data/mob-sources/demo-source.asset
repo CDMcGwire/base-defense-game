@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: demo-source
   m_EditorClassIdentifier: 
   periodicSpawnEntries:
-  - mob: {fileID: 2783911705219617809, guid: 4805639c81ec9ff459af05472efc9037, type: 3}
+  - mob: {fileID: 572786912861498079, guid: ac5841429276cf145b50db4df481d881, type: 3}
     basePeriod: 1.5
     relativeVariation: 0.3
     absoluteVariation: 0.05
     initialDelay: 0
-  - mob: {fileID: 8634878638524156752, guid: bc84ec547ab85bc43887e2429a41adde, type: 3}
-    basePeriod: 5
-    relativeVariation: 0.3
-    absoluteVariation: 0.5
-    initialDelay: 15
+  - mob: {fileID: 8521427242071158093, guid: 0b40fb8ee9de3f24490f3c73ffd377a3, type: 3}
+    basePeriod: 10
+    relativeVariation: 0
+    absoluteVariation: 2
+    initialDelay: 12
+  - mob: {fileID: 6520303563708746072, guid: 11fe5f710cb14a447b52433c893c8240, type: 3}
+    basePeriod: 3
+    relativeVariation: 0.2
+    absoluteVariation: 0
+    initialDelay: 20
   scriptedSpawnEntries: []

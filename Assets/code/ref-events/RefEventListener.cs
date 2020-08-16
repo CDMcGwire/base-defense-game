@@ -28,8 +28,8 @@ public class RefEventListener : MonoBehaviour {
 }
 
 public class RefEventListener<T> : MonoBehaviour {
-	public UnityEvent<T> onTrigger;
 	public RefEvent<T> refEvent;
+	public UnityEvent<T> onTrigger;
 
 	public void Trigger(T t) {
 		onTrigger.Invoke(t);

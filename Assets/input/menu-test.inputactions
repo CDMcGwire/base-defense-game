@@ -1,0 +1,109 @@
+{
+    "name": "menu-test",
+    "maps": [
+        {
+            "name": "demo",
+            "id": "e0c216c2-667c-4f95-a9d4-2b88f3ad03f3",
+            "actions": [
+                {
+                    "name": "submit",
+                    "type": "Button",
+                    "id": "7c94571e-e630-42cf-9bb0-6c00986920bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "switch-right",
+                    "type": "Button",
+                    "id": "1a79f3eb-aede-43fd-84cf-38686b970f16",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "switch-left",
+                    "type": "Button",
+                    "id": "a9563e0b-8416-4dfb-86cc-f2bf595bfec0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "back",
+                    "type": "Button",
+                    "id": "7bc7a846-f6ba-4d7a-ae05-01e95b57054a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "esc",
+                    "type": "Button",
+                    "id": "a915faf5-a75d-4c12-8629-09bcdb838e3f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "afa96309-0742-4e96-908b-24f6a27af507",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2598db9-66eb-41f8-8810-8e052438cf7e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "switch-right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1dc721f-a4a7-4ac4-8950-f6da35cc38de",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "switch-left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea78307e-551a-41ac-9f16-b3fceb7d3e9c",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd07b189-5978-4642-89dd-2ea45ff4ca70",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

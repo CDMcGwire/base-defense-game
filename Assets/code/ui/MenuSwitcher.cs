@@ -1,54 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace ui {
 public class MenuSwitcher : MonoBehaviour {
+#pragma warning disable 0649
+	[SerializeField] private string rootMenuName = "";
+	[SerializeField] private bool rootOnDisable = true;
+	[SerializeField] private bool simultaneousOpenClose = false;
+	[SerializeField] private GameMenuGroupEntry[] menus;
+#pragma warning restore 0649
+
 	private readonly LinkedList<string> history = new LinkedList<string>();
-
 	private readonly Dictionary<string, GameMenu> menuLookup = new Dictionary<string, GameMenu>();
-
 	private string currentMenuName = "";
 
 #if UNITY_EDITOR
 	private void OnValidate() {
-		initialMenuName = initialMenuName.Trim();
+		rootMenuName = rootMenuName.Trim();
 		if (Application.IsPlaying(this) && menuLookup.Count > 0) CompileMenuLookup();
 	}
 #endif
 
 	private void OnEnable() {
 		CompileMenuLookup();
-		if (initialMenuName.Length > 0) Change(initialMenuName);
+		var shouldInitialize = currentMenuName.Length < 1 && rootMenuName.Length > 0;
+		if (shouldInitialize) Change(rootMenuName);
 	}
 
 	private void OnDisable() {
-		if (rootOnDisable) Root();
+		if (rootOnDisable) Root(true);
 	}
 
+	[UsedImplicitly]
 	public void Change(string menuName) {
-		var cleanMenuName = menuName.Trim();
-		if (!menuLookup.ContainsKey(cleanMenuName)) {
-			Debug.LogWarning($"Tried to change to menu {cleanMenuName} from group {name} but it was not found");
+		// Trim and validate the target menu value.
+		var trimmedMenuName = menuName.Trim();
+		if (currentMenuName == trimmedMenuName) return;
+		if (!menuLookup.ContainsKey(trimmedMenuName)) {
+			Debug.LogWarning($"Tried to change to menu {trimmedMenuName} from group {name} but it was not found");
 			return;
 		}
-		if (currentMenuName == cleanMenuName) return;
 
 		if (currentMenuName.Length < 1) {
-			menuLookup[cleanMenuName].Open();
-			currentMenuName = cleanMenuName;
+			menuLookup[trimmedMenuName].Open();
 		}
 		else {
 			var currentMenu = menuLookup[currentMenuName];
-			var nextMenu = menuLookup[cleanMenuName];
-			currentMenu.Close(nextMenu.Open);
+			var nextMenu = menuLookup[trimmedMenuName];
+			SwitchMenus(currentMenu, nextMenu);
 		}
-		_ = history.Remove(cleanMenuName);
-		history.AddLast(cleanMenuName);
-		currentMenuName = cleanMenuName;
+		_ = history.Remove(trimmedMenuName);
+		history.AddLast(currentMenuName);
+		currentMenuName = trimmedMenuName;
 	}
 
+	[UsedImplicitly]
 	public void Return() {
 		if (history.Count < 1) return;
 
@@ -60,39 +68,53 @@ public class MenuSwitcher : MonoBehaviour {
 		}
 		else {
 			var lastMenu = menuLookup[currentMenuName];
-			currentMenu.Close(lastMenu.Open);
+			SwitchMenus(currentMenu, lastMenu);
 		}
 		history.RemoveLast();
 	}
 
-	public void Root() {
+	[UsedImplicitly]
+	public void Root(bool immediate) {
 		if (history.Count < 1) return;
 
 		var currentMenu = menuLookup[currentMenuName];
+		currentMenuName = rootMenuName;
 
-		if (initialMenuName.Length < 1) {
-			currentMenu.Close();
+		if (rootMenuName.Length < 1) {
+			currentMenu.Close(immediate);
 		}
 		else {
-			currentMenuName = initialMenuName;
-			var initialMenu = menuLookup[currentMenuName];
-			currentMenu.Close(initialMenu.Open);
+			var initialMenu = menuLookup[rootMenuName];
+			currentMenu.Close(initialMenu.Open, immediate);
 		}
 		history.Clear();
 	}
 
+	[UsedImplicitly]
+	public void Root() => Root(false);
+
 	private void CompileMenuLookup() {
 		menuLookup.Clear();
 		foreach (var entry in menus) {
-			menuLookup[entry.name.Trim()] = entry.menu;
-			entry.menu.gameObject.SetActive(false);
+			var trimmedName = entry.name.Trim();
+			menuLookup[trimmedName] = entry.menu;
+			if (trimmedName != currentMenuName)
+				entry.menu.gameObject.SetActive(false);
 		}
 	}
-#pragma warning disable 0649
-	[SerializeField] private string initialMenuName = "";
-	[SerializeField] private bool rootOnDisable = true;
-	[SerializeField] private GameMenuGroupEntry[] menus;
-#pragma warning restore 0649
+
+	/// <summary>
+	/// Performs the swap operation if changing from one menu to another.
+	/// </summary>
+	/// <param name="current">The menu that is currently open.</param>
+	/// <param name="next">The menu that will be opened next.</param>
+	private void SwitchMenus(GameMenu current, GameMenu next) {
+		if (simultaneousOpenClose) {
+			current.Close();
+			next.Open();
+		}
+		else current.Close(next.Open);
+	}
 }
 
 [Serializable]
