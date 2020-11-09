@@ -1190,6 +1190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3683c54906b44ba95ff894b3bffa677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsPerKill: 1
+  moneyPerKill: 1
   airborne: 0
   deathAnimTrigger: die
 --- !u!114 &800592597548122212

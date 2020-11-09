@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using managers;
 using TMPro;
 using UnityEngine;
@@ -10,7 +9,8 @@ namespace ui.settings {
 public class DisplaySettingsPanel : MonoBehaviour {
 #pragma warning disable 0649
 	[SerializeField] private DisplaySettingsManager displaySettingsManager;
-	[Space(12), SerializeField] private TMP_Dropdown resolutionDropdown;
+	[Space(12)]
+	[SerializeField] private TMP_Dropdown resolutionDropdown;
 	[SerializeField] private TMP_Dropdown fullscreenModeDropdown;
 	[SerializeField] private Toggle vsyncToggle;
 	[SerializeField] private Slider targetFramerateSlider;

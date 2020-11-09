@@ -1,6 +1,5 @@
 ﻿using System;
-using data.game;
-using refvalues;
+using data.refvalues;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,23 +16,23 @@ public class ScoreSetter : MonoBehaviour {
 		scoreChangeAction = (previous, current) => inputField.text = $"{current:N}";
 		inputAction = value => {
 			if (double.TryParse(value, out var number))
-				score.Value = (long) number;
+				score.Value.Current = (long) number;
 			else
 				Debug.LogError("Failed to enter a number!");
 		};
 		
-		score.OnValueChanged += scoreChangeAction;
+		score.Value.OnChanged += scoreChangeAction;
 		inputField.onEndEdit.AddListener(inputAction);
 	}
 
 	private void OnDisable() {
-		score.OnValueChanged -= scoreChangeAction;
+		score.Value.OnChanged -= scoreChangeAction;
 		inputField.onEndEdit.RemoveListener(inputAction);
 	}
 
 	public void SetScore(string value) {
 		if (long.TryParse(value, out var number))
-			score.Value = number;
+			score.Value.Current = number;
 	}
 }
 }

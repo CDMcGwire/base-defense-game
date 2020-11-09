@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+namespace ui {
 [RequireComponent(typeof(Toggle))]
 public class ToggleOnEvent : MonoBehaviour {
 #pragma warning disable 0649
@@ -14,4 +15,5 @@ public class ToggleOnEvent : MonoBehaviour {
 			if (isOn) onToggleOn.Invoke();
 		});
 	}
+}
 }

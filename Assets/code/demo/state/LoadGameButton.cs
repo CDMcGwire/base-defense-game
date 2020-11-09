@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace demo.state {
 public class LoadGameButton : MonoBehaviour {
-	public GameStateSo gameState;
+	public SaveManagerService saveManager;
 	public Button button;
 	public TMP_InputField nameEntry;
 
@@ -15,7 +15,7 @@ public class LoadGameButton : MonoBehaviour {
 
 	private void OnEnable() {
 		buttonAction = async () => {
-			await gameState.LoadGame(Path.Combine(Application.persistentDataPath, "game-saves", nameEntry.text + ".save"));
+			await saveManager.LoadGame(Path.Combine(Application.persistentDataPath, "game-saves", nameEntry.text + ".save"));
 		};
 		button.onClick.AddListener(buttonAction);
 	}

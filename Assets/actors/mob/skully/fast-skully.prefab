@@ -42,6 +42,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -71.268
       objectReference: {fileID: 0}
+    - target: {fileID: 572786912861498079, guid: ac5841429276cf145b50db4df481d881,
+        type: 3}
+      propertyPath: moneyPerKill
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 572786912861498079, guid: ac5841429276cf145b50db4df481d881,
+        type: 3}
+      propertyPath: pointsPerKill
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1269726270025083782, guid: ac5841429276cf145b50db4df481d881,
         type: 3}
       propertyPath: m_Bounds.m_Center.x

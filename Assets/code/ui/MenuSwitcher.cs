@@ -37,7 +37,13 @@ public class MenuSwitcher : MonoBehaviour {
 	public void Change(string menuName) {
 		// Trim and validate the target menu value.
 		var trimmedMenuName = menuName.Trim();
-		if (currentMenuName == trimmedMenuName) return;
+		if (currentMenuName == trimmedMenuName) {
+			// Edge case where the current menu was closed manually.
+			var currentMenu = menuLookup[trimmedMenuName];
+			if (!currentMenu.gameObject.activeInHierarchy)
+				currentMenu.Open();
+			return;
+		}
 		if (!menuLookup.ContainsKey(trimmedMenuName)) {
 			Debug.LogWarning($"Tried to change to menu {trimmedMenuName} from group {name} but it was not found");
 			return;
@@ -109,6 +115,10 @@ public class MenuSwitcher : MonoBehaviour {
 	/// <param name="current">The menu that is currently open.</param>
 	/// <param name="next">The menu that will be opened next.</param>
 	private void SwitchMenus(GameMenu current, GameMenu next) {
+		if (!current.gameObject.activeInHierarchy) {
+			next.Open();
+			return;
+		}
 		if (simultaneousOpenClose) {
 			current.Close();
 			next.Open();

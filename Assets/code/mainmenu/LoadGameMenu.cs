@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using data.game;
-using ui.elements;
+using ui.game;
 using UnityEngine;
 
 namespace mainmenu {
 public class LoadGameMenu : MonoBehaviour {
 #pragma warning disable 0649
-	[SerializeField] private GameStateSo gameState;
+	[SerializeField] private SaveManagerService saveManager;
+	[SerializeField] private ProgressTrackerService progressTracker;
+	[SerializeField] private SceneLoaderService sceneLoader;
+	[Space(10)]
 	[SerializeField] private ListedGameSaveElement listElementPrefab;
 	[SerializeField] private Transform listParent;
 #pragma warning restore 0649
@@ -15,7 +17,7 @@ public class LoadGameMenu : MonoBehaviour {
 	private readonly List<ListedGameSaveElement> listElementPool = new List<ListedGameSaveElement>();
 
 	private void OnEnable() {
-		var saveFiles = gameState.ListSaves();
+		var saveFiles = saveManager.ListSaves();
 
 		if (listElementPool.Count > saveFiles.Count) {
 			for (var i = saveFiles.Count; i < listElementPool.Count; i++) {
@@ -35,8 +37,9 @@ public class LoadGameMenu : MonoBehaviour {
 			listElementPool[i].DateDisplay.text = $"{saveFile.timestamp:MMMM dd, yyyy 'at' HH:mm:ss}";
 			listElementPool[i].Button.onClick.AddListener(
 				async () => {
-					await gameState.LoadGame(saveFile.location);
-					gameState.NextScene();
+					await saveManager.LoadGame(saveFile.location);
+					if (progressTracker.ValidScene)
+						sceneLoader.LoadScene(progressTracker.CurrentScene);
 				}
 			);
 		}

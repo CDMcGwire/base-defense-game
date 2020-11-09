@@ -12,20 +12,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfad534d9a4f4c12b93f16b1ec3653d1, type: 3}
   m_Name: demo-source
   m_EditorClassIdentifier: 
-  periodicSpawnEntries:
+  progressTracker: {fileID: 11400000, guid: c30a5650003d7994eaaa937aa3435485, type: 2}
+  spawnGenerators:
   - mob: {fileID: 572786912861498079, guid: ac5841429276cf145b50db4df481d881, type: 3}
-    basePeriod: 1.5
-    relativeVariation: 0.3
-    absoluteVariation: 0.05
-    initialDelay: 0
-  - mob: {fileID: 8521427242071158093, guid: 0b40fb8ee9de3f24490f3c73ffd377a3, type: 3}
-    basePeriod: 10
-    relativeVariation: 0
-    absoluteVariation: 2
-    initialDelay: 12
+    firstDay: 0
+    lastDay: 0
+    baseInterval: 1.5
+    intervalScaling:
+      factor: 0
+      function: 0
+      decay: 1
+    baseRelativeVariation: 0
+    relativeVariationScaling:
+      factor: 0
+      function: 0
+      decay: 0
+    baseAbsoluteVariation: 0.5
+    absoluteVariationScaling:
+      factor: 0.1
+      function: 0
+      decay: 0
+    baseInitialDelay: 0
+    initialDelayScaling:
+      factor: 0
+      function: 0
+      decay: 0
   - mob: {fileID: 6520303563708746072, guid: 11fe5f710cb14a447b52433c893c8240, type: 3}
-    basePeriod: 3
-    relativeVariation: 0.2
-    absoluteVariation: 0
-    initialDelay: 20
+    firstDay: 2
+    lastDay: 0
+    baseInterval: 5
+    intervalScaling:
+      factor: 0
+      function: 0
+      decay: 0
+    baseRelativeVariation: 0
+    relativeVariationScaling:
+      factor: 0
+      function: 0
+      decay: 0
+    baseAbsoluteVariation: 0.2
+    absoluteVariationScaling:
+      factor: 0
+      function: 0
+      decay: 0
+    baseInitialDelay: 10
+    initialDelayScaling:
+      factor: 5
+      function: 2
+      decay: 1
+  - mob: {fileID: 8521427242071158093, guid: 0b40fb8ee9de3f24490f3c73ffd377a3, type: 3}
+    firstDay: 5
+    lastDay: 0
+    baseInterval: 15
+    intervalScaling:
+      factor: 3
+      function: 2
+      decay: 1
+    baseRelativeVariation: 0
+    relativeVariationScaling:
+      factor: 0
+      function: 0
+      decay: 0
+    baseAbsoluteVariation: 2.5
+    absoluteVariationScaling:
+      factor: 0
+      function: 0
+      decay: 0
+    baseInitialDelay: 10
+    initialDelayScaling:
+      factor: 3
+      function: 2
+      decay: 1
   scriptedSpawnEntries: []

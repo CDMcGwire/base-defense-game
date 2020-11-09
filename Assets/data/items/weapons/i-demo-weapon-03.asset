@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6d942e899749fa8b981c96878c3ed2, type: 3}
+  m_Name: i-demo-weapon-03
+  m_EditorClassIdentifier: 
+  displayName: Demo Weapon 03
+  sprite: {fileID: 21300000, guid: 02d47bbd907e5cf4f8a45314a3367678, type: 3}
+  price: 420
+  unique: 1
+  data: {fileID: 1273080912546771006, guid: 1e11b186eedea6c47b3c41dfa929c901, type: 3}

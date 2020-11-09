@@ -16,11 +16,21 @@ public class PlayerInputAimer : MonoBehaviour {
 
 	private const float MouseBuffer = 0.01f;
 
-	private bool IkEnabled 
+	private bool IkEnabled
 		=> ikRoot != null && ikHandle != null;
 
-	private bool IkTargetNotOverlapped 
+	private bool IkTargetNotOverlapped
 		=> Vector2.Distance(ikRoot.position, ikHandle.position) > ikMaxDist;
+
+	public Camera RefCamera {
+		get => refCamera;
+		set => refCamera = value;
+	}
+
+	public Transform Targeter {
+		get => target;
+		set => target = value;
+	}
 
 	public void Awake() {
 		Debug.Assert(
@@ -31,6 +41,7 @@ public class PlayerInputAimer : MonoBehaviour {
 
 	[UsedImplicitly]
 	public void Target(InputAction.CallbackContext context) {
+		if (refCamera == null) return;
 		var inputVector = context.ReadValue<Vector2>();
 		var mousePos = (Vector2) refCamera.ScreenToWorldPoint(inputVector);
 
@@ -39,9 +50,6 @@ public class PlayerInputAimer : MonoBehaviour {
 		if (!IkEnabled || IkTargetNotOverlapped) {
 			if (target != null) AimFromPoint(mousePos);
 			else AimFromRoot(mousePos);
-		}
-		else {
-//			pivot.localRotation = Quaternion.Lerp(ikRoot.localRotation, Quaternion.LookRotation(ikRoot.forward, ikRoot.up), 0.9f);
 		}
 	}
 

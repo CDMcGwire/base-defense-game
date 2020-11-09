@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e5aab569fd459da911cb8a9fe3323c, type: 3}
+  m_Name: progress-tracker-service
+  m_EditorClassIdentifier: 
+  defenseScenePicker: {fileID: 11400000, guid: d898f3a1e51ae44439c4d08f30a00e7e, type: 2}
+  townScenePicker: {fileID: 11400000, guid: ec17a8577c583b2448ad9cd2047396c9, type: 2}
+  preDefenseScenePicker: {fileID: 11400000, guid: 23680c051e91a134d992e861515c41ae,
+    type: 2}
+  postDefenseScenePicker: {fileID: 11400000, guid: 09e32eca3e249264f9d1e5732f2f6926,
+    type: 2}
+  endGameScenePicker: {fileID: 11400000, guid: 26cf6640928e7ba4284a4f119fe34227, type: 2}
+  sceneLoader: {fileID: 11400000, guid: 1ac27b491043dae41bac4ec7578816fa, type: 2}

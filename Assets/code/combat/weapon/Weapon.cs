@@ -11,12 +11,20 @@ using UnityEngine.InputSystem;
 
 namespace combat.weapon {
 public class Weapon : MonoBehaviour {
+#pragma warning disable 0649
+	[SerializeField] private List<string> filteredTargetTypes = new List<string>();
+	[SerializeField] private AttackDriver driver;
+	[SerializeField] private WeaponEvent onAttackEnd = new WeaponEvent();
+	[SerializeField] private Transform muzzlePoint;
+#pragma warning restore 0649
+	
 	private readonly HashSet<int> activeTargets = new HashSet<int>();
 	private readonly HashSet<int> ignoredTargets = new HashSet<int>();
 
 	private readonly HashSet<int> targetFilter = new HashSet<int>();
 
 	public Combatant Owner { get; set; }
+	public Transform MuzzlePoint => muzzlePoint;
 	public WeaponEvent OnAttackEnd => onAttackEnd;
 
 	private void Awake() {
@@ -74,11 +82,6 @@ public class Weapon : MonoBehaviour {
 			? hit.collider.GetComponent<CombatEffectResolver>()
 			: hit.rigidbody.GetComponent<CombatEffectResolver>();
 	}
-#pragma warning disable 0649
-	[SerializeField] private List<string> filteredTargetTypes = new List<string>();
-	[SerializeField] private AttackDriver driver;
-	[SerializeField] private WeaponEvent onAttackEnd = new WeaponEvent();
-#pragma warning restore 0649
 }
 
 public readonly struct AttackInfo {

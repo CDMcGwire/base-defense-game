@@ -21,11 +21,11 @@ public class DisplaySettingsManager : ScriptableObject {
 	private readonly SortedList<Resolution, string> sortedResolutions =
 		new SortedList<Resolution, string>(new ResolutionComparer());
 
-	[UsedImplicitly] public IEnumerable<string> SupportedResolutionLabels => sortedResolutions.Values;
-	[UsedImplicitly] public string CurrentResolution => ToResLabel(Screen.currentResolution);
-	[UsedImplicitly] public IEnumerable<string> SupportedFullscreenModes => fsModeLabels.Keys;
-	[UsedImplicitly] public int CurrentFullscreenMode => (int) Screen.fullScreenMode;
-	[UsedImplicitly] public bool VsyncEnabled => PlayerPrefs.GetInt(Pref_Fr_Vsync) > 0;
+	public IEnumerable<string> SupportedResolutionLabels => sortedResolutions.Values;
+	public string CurrentResolution => ToResLabel(Screen.currentResolution);
+	public IEnumerable<string> SupportedFullscreenModes => fsModeLabels.Keys;
+	public int CurrentFullscreenMode => (int) Screen.fullScreenMode;
+	public bool VsyncEnabled => QualitySettings.vSyncCount > 0;
 
 	private void Awake() {
 		InitializeSupportedDisplayOptions();

@@ -339,7 +339,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 763257151}
   m_HandleRect: {fileID: 763257150}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16051,14 +16051,26 @@ MonoBehaviour:
   onNew:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1405409483}
-        m_TargetAssemblyTypeName: managers.LevelSwitcher, Assembly-CSharp
-        m_MethodName: Load
-        m_Mode: 3
+      - m_Target: {fileID: 11400000, guid: 11d00f3febf6f254a9ec6a42ac2fbbc5, type: 2}
+        m_TargetAssemblyTypeName: data.game.SaveManagerService, Assembly-CSharp
+        m_MethodName: NewGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: c30a5650003d7994eaaa937aa3435485, type: 2}
+        m_TargetAssemblyTypeName: data.game.ProgressTrackerService, Assembly-CSharp
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -24889,7 +24901,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14bb82734e146b296fcf1d4c5ec1077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 980563a2f09804c4f9914fdd1dd722bb, type: 2}
+  saveManager: {fileID: 11400000, guid: 11d00f3febf6f254a9ec6a42ac2fbbc5, type: 2}
+  progressTracker: {fileID: 11400000, guid: c30a5650003d7994eaaa937aa3435485, type: 2}
+  sceneLoader: {fileID: 11400000, guid: 1ac27b491043dae41bac4ec7578816fa, type: 2}
   listElementPrefab: {fileID: 3535313032455281756, guid: 2e8a61a2b2eb0ba46a13a555cf50dff6,
     type: 3}
   listParent: {fileID: 935088643}

@@ -1,10 +1,16 @@
 ﻿using System;
-
 using UnityEngine;
 
 namespace combat.effects.core {
 [Serializable]
 public abstract class PayloadObject<T> : IComparable<PayloadObject<T>> where T : PayloadObject<T> {
+#pragma warning disable 0649
+	[SerializeField] private string group;
+	[SerializeField] private string kind;
+	[SerializeField] private int order;
+	[SerializeField] private int precedence;
+#pragma warning restore 0649
+
 	/// <summary>
 	///   Group determines what other PayloadObjects the instance will be compared to
 	///   when filtering, stacking, and ordering. Only instances of like group will be
@@ -41,15 +47,30 @@ public abstract class PayloadObject<T> : IComparable<PayloadObject<T>> where T :
 	/// </param>
 	/// <returns>The resulting <see cref="PayloadObject{T}" /></returns>
 	public abstract T Stack(T next, int stackCount);
-#pragma warning disable 0649
-	[SerializeField] private string group;
-	[SerializeField] private string kind;
-	[SerializeField] private int order;
-	[SerializeField] private int precedence;
-#pragma warning restore 0649
 }
 
-public abstract class PayloadDataSource<T> : ScriptableObject where T : PayloadObject<T> {
+public abstract class PayloadDataSource : ScriptableObject, IEquatable<PayloadDataSource> {
+	public bool Equals(PayloadDataSource other)
+		=> other != null && name == other.name;
+
+	public override bool Equals(object other) {
+		if (ReferenceEquals(null, other)) return false;
+		if (ReferenceEquals(this, other)) return true;
+		return other.GetType() == GetType()
+		       && Equals((PayloadDataSource) other);
+	}
+
+	public override int GetHashCode()
+		=> base.GetHashCode();
+
+	public static bool operator ==(PayloadDataSource left, PayloadDataSource right)
+		=> Equals(left, right);
+
+	public static bool operator !=(PayloadDataSource left, PayloadDataSource right)
+		=> !Equals(left, right);
+}
+
+public abstract class PayloadDataSource<T> : PayloadDataSource where T : PayloadObject<T> {
 	public abstract T Value { get; }
 }
 }
