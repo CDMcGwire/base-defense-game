@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+using data.refvalues;
 using data.scene;
 using data.service;
 using JetBrains.Annotations;
@@ -10,10 +13,13 @@ namespace data.game {
 /// "phase" of the day.
 /// </summary>
 [CreateAssetMenu(fileName = "progress-tracker-service", menuName = "Service/Progress Tracker", order = 0)]
-public class ProgressTrackerService : Service<ProgressTracker> {
+public class ProgressTrackerService : DataService<ProgressTrackerData>, IPersistableService {
 	private const string Invalid_Scene = "INVALID";
 
 #pragma warning disable 0649
+	[SerializeField] private GamePhase initialPhase = GamePhase.PreDefense;
+	[SerializeField] private long initialDay = 0;
+	[Space(10)]
 	[SerializeField] private ScenePicker defenseScenePicker;
 	[SerializeField] private ScenePicker townScenePicker;
 	[SerializeField] private ScenePicker preDefenseScenePicker;
@@ -23,130 +29,108 @@ public class ProgressTrackerService : Service<ProgressTracker> {
 	[SerializeField] private SceneLoaderService sceneLoader;
 #pragma warning restore 0649
 
-	/// <summary>
-	/// The loadable name of the current scene.
-	/// </summary>
-	public string CurrentScene {
-		get => DataComponent.progressData.currentScene;
-		private set => DataComponent.progressData.currentScene = value;
-	}
-
-	/// <summary>
-	/// The current phase of the game.
-	/// </summary>
-	public GamePhase Phase {
-		get => DataComponent.progressData.phase;
-		private set => DataComponent.progressData.phase = value;
-	}
-
-	/// <summary>
-	/// The current day of the game starting from 0.
-	/// </summary>
-	public long Day {
-		get => DataComponent.progressData.day;
-		private set => DataComponent.progressData.day = value;
-	}
+	public IReactiveReadVal<long> Day => Data.Day;
+	public IReactiveReadVal<GamePhase> Phase => Data.Phase;
+	public IReactiveReadVal<string> Scene => Data.Scene;
 
 	/// <summary>
 	/// For checking if the loaded save was in an invalid state.
 	/// </summary>
-	public bool ValidScene => CurrentScene != Invalid_Scene;
+	public bool ValidScene => Data.Scene.Current != Invalid_Scene;
 
 	public event Action OnNextSceneEnd;
 
+	public override void Initialize() {
+		Data.Scene.Current = "";
+		Data.Phase.Current = initialPhase;
+		Data.Day.Current = initialDay;
+	}
+
 	[UsedImplicitly]
 	public void NewGame() {
-		Clear();
-		StartNextScene();
+		Initialize();
+		// Begin with a pre-defense phase if one is available, else continue to defense.
+		if (!BeginPhase())
+			StartNextScene();
 	}
 
 	public void StartNextScene() {
-		// Advance the phase.
-		CurrentScene = AdvancePhase();
-		// Check if a valid scene name was returned.
-		if (string.IsNullOrWhiteSpace(CurrentScene)) {
-			switch (Phase) {
-				// If no scene was returned for pre/post combat, skip that phase.
+		AdvancePhase();
+		while (!BeginPhase()) {
+			switch (Data.Phase.Current) {
 				case GamePhase.PreDefense:
 				case GamePhase.PostDefense:
-					CurrentScene = AdvancePhase();
+					AdvancePhase();
 					break;
+				default:
+					throw new Exception(
+						$"Tried to begin a non-optional game phase [{Data.Phase.Current}] but no scene could be chosen."
+					);
 			}
 		}
-		try {
-			sceneLoader.LoadScene(CurrentScene);
-		}
-		catch (SceneLoadException) {
-			CurrentScene = Invalid_Scene;
-			throw;
-		}
-		// Fire off any events waiting for the scene to end.
-		// TODO: Come back to this if this ends up needing to reference the current scene info.
 		OnNextSceneEnd?.Invoke();
 		OnNextSceneEnd = null;
+	}
+
+	private bool BeginPhase() {
+		// Determine the scene to load for the current phase.
+		Data.Scene.Current = PickScene();
+		// Check if a valid scene name was returned.
+		if (string.IsNullOrWhiteSpace(Data.Scene.Current))
+			return false;
+		try {
+			sceneLoader.LoadScene(Data.Scene.Current);
+		}
+		catch (SceneLoadException) {
+			Data.Scene.Current = Invalid_Scene;
+			throw;
+		}
+		return true;
 	}
 
 	/// <summary>
 	/// Method to be called when the current run should end.
 	/// </summary>
-	public void EndGame() {
-		sceneLoader.LoadScene(endGameScenePicker.Next());
-	}
-
-	/// <summary>
-	/// Creates a serializable data object from the current state.
-	/// </summary>
-	/// <returns>A serializable data object.</returns>
-	public ProgressTrackerData BuildSaveData()
-		=> DataComponent.progressData;
-
-	/// <summary>
-	/// Sets the current state from the contents of a deserialized save file.
-	/// </summary>
-	/// <param name="saveData">The deserialized data object.</param>
-	public void LoadSaveData(ProgressTrackerData saveData)
-		=> DataComponent.progressData = saveData;
-
-	public void Clear() {
-		CurrentScene = "";
-		Phase = GamePhase.PreDefense;
-		Day = 0;
-	}
+	public void EndGame()
+		=> sceneLoader.LoadScene(endGameScenePicker.Next());
 
 	/// <summary>
 	/// Progresses the game session to the next ordered phase and returns the
 	/// name of the next scene to load.
 	/// </summary>
 	/// <returns>The name of the next scene or an empty string if there is none.</returns>
-	private string AdvancePhase() {
-		switch (Phase) {
+	private void AdvancePhase() {
+		switch (Data.Phase.Current) {
 			case GamePhase.PreDefense:
-				Phase = GamePhase.Defense;
-				Day++;
-				return defenseScenePicker.Next();
+				Data.Phase.Current = GamePhase.Defense;
+				Data.Day.Current++;
+				break;
 			case GamePhase.Defense:
-				Phase = GamePhase.PostDefense;
-				return postDefenseScenePicker.Next();
+				Data.Phase.Current = GamePhase.PostDefense;
+				break;
 			case GamePhase.PostDefense:
-				Phase = GamePhase.Town;
-				return townScenePicker.Next();
+				Data.Phase.Current = GamePhase.Town;
+				break;
 			case GamePhase.Town:
-				Phase = GamePhase.PreDefense;
-				return preDefenseScenePicker.Next();
+				Data.Phase.Current = GamePhase.PreDefense;
+				break;
 		}
-		return "";
 	}
-}
 
-/// <summary>
-/// An object representing all the data which needs to be serialized to a save
-/// file.
-/// </summary>
-[Serializable]
-public struct ProgressTrackerData {
-	public string currentScene;
-	public GamePhase phase;
-	public long day;
+	private string PickScene()
+		=> Data.Phase.Current switch {
+			GamePhase.PreDefense => preDefenseScenePicker.Next(),
+			GamePhase.Defense => defenseScenePicker.Next(),
+			GamePhase.PostDefense => postDefenseScenePicker.Next(),
+			GamePhase.Town => townScenePicker.Next(),
+			_ => "",
+		};
+
+	public async Task WriteLines(StreamWriter stream)
+		=> await stream.WriteLineAsync(JsonUtility.ToJson(Data));
+
+	public async Task ReadLines(SectionReader stream)
+		=> JsonUtility.FromJsonOverwrite(await stream.ReadLineAsync(), Data);
 }
 
 /// <summary>

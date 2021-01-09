@@ -11,16 +11,23 @@ namespace data.game {
 /// </summary>
 [CreateAssetMenu(fileName = "save-manager-service", menuName = "Service/Game Save", order = 0), Serializable]
 public class SaveManagerService : Service {
-	private const string Save_Ending = ".save";
+	private const string Temp_Ext = ".partial";
+	private const string Save_Ext = ".save";
+	private const string Section_Start = ">>>";
+	private const string Section_End = "<<<";
 
 #pragma warning disable 0649
 	[SerializeField] private string saveDir = "game-saves";
-	[SerializeField] private StatisticsService statistics;
-	[SerializeField] private ProgressTrackerService progressTracker;
-	[SerializeField] private PlayerLoadoutService playerLoadout;
+	[SerializeField] private List<DataService> dataServices;
 #pragma warning restore 0649
 
 	private string FullSaveDir => Path.Combine(Application.persistentDataPath, saveDir);
+
+	private void OnValidate() {
+		foreach (var service in dataServices)
+			if (!(service is IPersistableService))
+				Debug.LogWarning($"SaveManager [{name}] has a non-serializable service listed as data [{service}].");
+	}
 
 	public IReadOnlyList<SaveFile> ListSaves() {
 		if (!Directory.Exists(FullSaveDir))
@@ -28,7 +35,7 @@ public class SaveManagerService : Service {
 		var entries = new List<SaveFile>();
 		foreach (var filename in Directory.EnumerateFiles(FullSaveDir)) {
 			var fileInfo = new FileInfo(filename);
-			var saveName = fileInfo.Name.Replace(Save_Ending, "");
+			var saveName = fileInfo.Name.Replace(Save_Ext, "");
 			var saveEntry = new SaveFile(saveName, filename, fileInfo.LastWriteTime);
 			entries.Add(saveEntry);
 		}
@@ -36,38 +43,54 @@ public class SaveManagerService : Service {
 	}
 
 	public void NewGame() {
-		statistics.Clear();
-		progressTracker.Clear();
-		playerLoadout.Clear();
+		foreach (var service in dataServices)
+			service.Initialize();
 	}
 
 	public async Task LoadGame(string filepath) {
 		Debug.LogFormat("Loading {0}", filepath);
-		SaveFileData save;
-		using (var reader = File.OpenText(filepath)) {
-			var content = await reader.ReadToEndAsync();
-			save = JsonUtility.FromJson<SaveFileData>(content);
+
+		var sections = new Dictionary<string, IPersistableService>(dataServices.Count);
+		foreach (var service in dataServices)
+			if (service is IPersistableService persistable)
+				sections[service.name] = persistable;
+
+		using var reader = File.OpenText(filepath);
+		string line;
+		var sectionReader = new SectionReader(reader, Section_End);
+		
+		while ((line = await reader.ReadLineAsync()) != null) {
+			if (!line.StartsWith(Section_Start)) continue;
+			var sectionName = line.Substring(Section_Start.Length).Trim();
+			if (!sections.ContainsKey(sectionName)) continue;
+			
+			// See SectionReader class for explanation
+			sectionReader.Reset();
+			await sections[sectionName].ReadLines(sectionReader);
 		}
-		// Push deserialized data out to managing systems.
-		statistics.LoadSessionSaveData(save.sessionStatsData);
-		progressTracker.LoadSaveData(save.progressionData);
-		playerLoadout.LoadFromData(save.playerLoadoutData);
 	}
 
-	public void SaveGame(string saveName) {
+	public async void SaveGame(string saveName) {
 		// Pull and collect distributed game state values
-		var save = new SaveFileData {
-			sessionStatsData = statistics.BuildSessionSaveData(),
-			progressionData = progressTracker.BuildSaveData(),
-			playerLoadoutData = playerLoadout.BuildSaveData(),
-		};
 		var dir = FullSaveDir;
 		if (!Directory.Exists(dir))
 			Directory.CreateDirectory(dir);
-		var filepath = Path.Combine(dir, saveName + Save_Ending);
 
-		File.WriteAllText(filepath, JsonUtility.ToJson(save));
-		Debug.LogFormat("Saved to {0}", filepath);
+		var partFilepath = Path.Combine(dir, saveName + Temp_Ext);
+		using (var writer = File.CreateText(partFilepath)) {
+			foreach (var service in dataServices) {
+				if (!(service is IPersistableService persistable)) continue;
+				await writer.WriteLineAsync(Section_Start + service.name);
+				await persistable.WriteLines(writer);
+				await writer.WriteLineAsync(Section_End);
+			}
+		}
+		var saveFilepath = Path.Combine(dir, saveName + Save_Ext);
+		if (File.Exists(saveFilepath))
+			File.Delete(saveFilepath);
+		File.Move(partFilepath, saveFilepath);
+		
+		Debug.Log($"Saved game to file [{saveFilepath}].");
 	}
 
 	public void AutoSave() => SaveGame("AutoSave");
@@ -84,12 +107,5 @@ public readonly struct SaveFile {
 		this.location = location;
 		this.timestamp = timestamp;
 	}
-}
-
-[Serializable]
-public struct SaveFileData {
-	public List<SerialStatEntry> sessionStatsData;
-	public ProgressTrackerData progressionData;
-	public PlayerLoadoutData playerLoadoutData;
 }
 }

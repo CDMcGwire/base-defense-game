@@ -48,7 +48,7 @@ public class SalesAssociate : RefValueObserver<long> {
 		if (playerWallet.Value.Current < listing.Item.Price)
 			return;
 		playerWallet.Value.Current -= listing.Item.Price;
-		playerLoadout.Add(listing.Item);
+		playerLoadout.AddItem(listing.Item);
 		foreach (var filter in filters) {
 			if (!filter.ShouldFilterSingle(listing.Item)) 
 				continue;

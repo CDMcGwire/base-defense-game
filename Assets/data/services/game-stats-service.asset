@@ -10,14 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12170821a51a437088c46e37dfc23919, type: 3}
-  m_Name: statistics-service
+  m_Name: game-stats-service
   m_EditorClassIdentifier: Assembly-CSharp:data.game:StatisticsSo
-  profileStatsSavePath: 
-  session:
-  - displayName: Score
-    refValue: {fileID: 11400000, guid: de47c24aade2c35469545fa51c17bb4f, type: 2}
-  - displayName: Kills
-    refValue: {fileID: 11400000, guid: fb6645c3420a91b438a778791ffb2848, type: 2}
-  - displayName: Money
-    refValue: {fileID: 11400000, guid: 63efbb966e2ee444e931f106f819bfb6, type: 2}
-  profile: []
+  stats:
+  - {fileID: 11400000, guid: fb6645c3420a91b438a778791ffb2848, type: 2}
+  - {fileID: 11400000, guid: de47c24aade2c35469545fa51c17bb4f, type: 2}
+  - {fileID: 11400000, guid: 63efbb966e2ee444e931f106f819bfb6, type: 2}

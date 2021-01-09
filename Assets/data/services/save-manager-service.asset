@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: save-manager-service
   m_EditorClassIdentifier: Assembly-CSharp:data.game:SaveManagerSo
   saveDir: game-saves
-  statistics: {fileID: 11400000, guid: b656bff923d94014eae302e3458bb330, type: 2}
-  progressTracker: {fileID: 11400000, guid: c30a5650003d7994eaaa937aa3435485, type: 2}
-  playerLoadout: {fileID: 11400000, guid: fb2e0a7cb683cfe46b77bc41b1ccf78d, type: 2}
+  dataServices:
+  - {fileID: 11400000, guid: c30a5650003d7994eaaa937aa3435485, type: 2}
+  - {fileID: 11400000, guid: fb2e0a7cb683cfe46b77bc41b1ccf78d, type: 2}
+  - {fileID: 11400000, guid: 33b4ceaefa69e924c948584ad2eeef27, type: 2}
+  - {fileID: 11400000, guid: b656bff923d94014eae302e3458bb330, type: 2}

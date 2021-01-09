@@ -1,12 +1,10 @@
-﻿using System;
-using data.service;
+﻿using data.service;
 using UnityEngine;
 
 namespace data.refvalues {
-public abstract class RefValue : Service<RefValueStorage> {
-	public abstract void Reset();
-	public abstract string ToJson();
-	public abstract void FromJson(string json);
+public abstract class RefValue : DataService<RefValueStorage> {
+	public abstract string AsText();
+	public abstract void Coerce(string text);
 }
 
 public abstract class RefValue<T> : RefValue {
@@ -16,22 +14,16 @@ public abstract class RefValue<T> : RefValue {
 
 	protected override string HandleId => "ref-values";
 
-	public Observable<T> Value 
-		=> DataComponent != null 
-			? DataComponent.Lookup<T>(name) ?? DataComponent.Publish(name, initialValue) 
+	public ReactiveVal<T> Value
+		=> Data != null
+			? Data.Lookup<T>(name)
+			  ?? Data.Publish(name, initialValue)
 			: null;
 
-	public override void Reset() => Value.Current = initialValue;
+	public override void Initialize()
+		=> Value.Current = initialValue;
 
-	public override string ToJson()
-		=> JsonUtility.ToJson(new ValueWrapper {value = Value.Current});
-
-	public override void FromJson(string json)
-		=> Value.Current = JsonUtility.FromJson<ValueWrapper>(json).value;
-
-	[Serializable]
-	private struct ValueWrapper {
-		public T value;
-	}
+	public override string AsText()
+		=> Value.Current.ToString();
 }
 }

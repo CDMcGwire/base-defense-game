@@ -26,7 +26,7 @@ public class MobSourceData : ScriptableObject, ISerializationCallbackReceiver {
 
 	public MobSource NewValue(float startTime) {
 		var periodicSpawns = new List<PeriodicSpawn>();
-		var day = progressTracker.Day;
+		var day = progressTracker.Day.Current;
 		foreach (var generator in spawnGenerators)
 			if (generator.CanSpawn(day))
 				periodicSpawns.Add(generator.CalculatePeriodicSpawn(day));

@@ -18,7 +18,7 @@ public class PlayerCharacter : Combatant {
 	private Weapon currentWeapon;
 
 	private readonly Dictionary<string, Weapon> spawnedWeapons = new Dictionary<string, Weapon>();
-	
+
 	public void Initialize(PlayerLoadoutService playerLoadout, Camera playerCamera) {
 		aimer = GetComponent<PlayerInputAimer>();
 		aimer.RefCamera = playerCamera;
@@ -30,7 +30,7 @@ public class PlayerCharacter : Combatant {
 			throw new ArgumentNullException($"PlayerCharacter {name} should not be initialized with a null loadout.");
 		loadout = playerLoadout;
 		if (loadout.EquippedWeapons.Count < 1) return;
-		SwitchWeapon(loadout.ActiveWeaponSlot);
+		SwitchWeapon(loadout.ActiveWeaponSlot.Current);
 	}
 
 	[UsedImplicitly]
@@ -54,7 +54,7 @@ public class PlayerCharacter : Combatant {
 
 		targetWeapon.gameObject.SetActive(true);
 		currentWeapon = targetWeapon;
-		loadout.ActiveWeaponSlot = slot;
+		loadout.ChangeActiveWeaponSlot(slot);
 		aimer.Targeter = targetWeapon.MuzzlePoint;
 	}
 
@@ -85,7 +85,7 @@ public class PlayerCharacter : Combatant {
 	[UsedImplicitly]
 	public void CycleWeapon(int direction) {
 		if (loadout.EquippedWeapons.Count < 1) return;
-		var target = (loadout.ActiveWeaponSlot + direction) % loadout.EquippedWeapons.Count;
+		var target = (loadout.ActiveWeaponSlot.Current + direction) % loadout.EquippedWeapons.Count;
 		SwitchWeapon(target);
 	}
 

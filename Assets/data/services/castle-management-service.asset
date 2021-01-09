@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: weapon-store
-  m_EditorClassIdentifier: Assembly-CSharp:data.store:StoreInventory
-  items: []
+  m_Script: {fileID: 11500000, guid: 9254f2289de94d0aaceb58b146419d51, type: 3}
+  m_Name: castle-management-service
+  m_EditorClassIdentifier: 
+  initialData:
+    maxHealth: 100
+    currentDamage: 0

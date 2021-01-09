@@ -12,7 +12,7 @@ public class ProgressionValidator : MonoBehaviour {
 
 	[UsedImplicitly]
 	public void Validate() {
-		if (progressTracker.Phase == assignedPhase)
+		if (progressTracker.Phase.Current == assignedPhase)
 			onValid.Invoke();
 	}
 }

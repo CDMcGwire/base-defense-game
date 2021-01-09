@@ -85,5 +85,18 @@ public class ServiceDataProvider : MonoBehaviour {
 		DataProvider.dataComponents[handleId] = newComponent;
 		return newComponent;
 	}
+
+	/// <summary>
+	/// Removes the data component with the given Handle ID if it exists.
+	/// </summary>
+	/// <param name="handleId">The identifying name of this data component instance.</param>
+	public static void Remove(string handleId) {
+		if (DataProvider == null) return;
+		var components = DataProvider.dataComponents;
+		if (!components.ContainsKey(handleId)) return;
+		var dataComponent = components[handleId];
+		components.Remove(handleId);
+		Destroy(dataComponent);
+	}
 }
 }

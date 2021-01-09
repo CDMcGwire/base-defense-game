@@ -12,17 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba40d659ec74b28917dac764316990d, type: 3}
   m_Name: player-loadout-service
   m_EditorClassIdentifier: Assembly-CSharp:data.game:PlayerLoadoutSo
-  initialLoadout:
-    playerCharacter: {fileID: 8376844987239688325, guid: e01cfd6e9c86e2d42b6cab8fe17721fa,
-      type: 3}
-    ownedItems:
-    - {fileID: 11400000, guid: da1380836c8573146ac29dcf096728b2, type: 2}
-    weaponSlots: 3
-    equippedWeapons:
-    - {fileID: 11400000, guid: da1380836c8573146ac29dcf096728b2, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
-    toolSlots: 2
-    equippedTools:
-    - {fileID: 0}
-    - {fileID: 0}
+  initialPlayerCharacter: {fileID: 8376844987239688325, guid: e01cfd6e9c86e2d42b6cab8fe17721fa,
+    type: 3}
+  initialOwnedItems: []
+  initialWeaponSlots: 3
+  initialActiveWeaponSlot: 0
+  initialEquippedWeapons:
+  - {fileID: 11400000, guid: da1380836c8573146ac29dcf096728b2, type: 2}
+  initialToolSlots: 2
+  initialEquippedTools: []

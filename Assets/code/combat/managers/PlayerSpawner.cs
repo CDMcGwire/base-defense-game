@@ -10,7 +10,7 @@ public class PlayerSpawner : MonoBehaviour {
 #pragma warning restore 0649
 
 	private void Start() {
-		var playerCharacter = Instantiate(playerLoadout.PlayerCharacter);
+		var playerCharacter = Instantiate(playerLoadout.PlayerCharacter.Current);
 		playerCharacter.Initialize(playerLoadout, playerCamera);
 		playerCharacter.transform.position = spawnPoint.position;
 	}

@@ -39,7 +39,7 @@ public class LoadGameMenu : MonoBehaviour {
 				async () => {
 					await saveManager.LoadGame(saveFile.location);
 					if (progressTracker.ValidScene)
-						sceneLoader.LoadScene(progressTracker.CurrentScene);
+						sceneLoader.LoadScene(progressTracker.Scene.Current);
 				}
 			);
 		}

@@ -32,8 +32,8 @@ public class ProceduralScenePicker : ScenePicker {
 		var validScenes = new List<ProceduralScene>();
 		var totalWeight = 0;
 		foreach (var entry in sortedScenes) {
-			if (entry.Key > progressTracker.Day) break;
-			if (entry.Value.ToDay < progressTracker.Day
+			if (entry.Key > progressTracker.Day.Current) break;
+			if (entry.Value.ToDay < progressTracker.Day.Current
 			    || !entry.Value.ConditionsMet()) continue;
 			validScenes.Add(entry.Value);
 			totalWeight += entry.Value.Weight;
