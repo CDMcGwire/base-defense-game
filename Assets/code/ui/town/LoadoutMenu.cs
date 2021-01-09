@@ -88,10 +88,11 @@ public class LoadoutSlotGroup {
 					if (slotValues[dupeSlot] != itemIndex) continue;
 					// If a match is found, begin a swap.
 					var previousItemIndex = slotValues[slotIndex];
-					var swapItem = previousItemIndex > 0 
+					var swapItem = previousItemIndex > -1
 						? slotableItems[previousItemIndex] 
 						: null;
 					onSlotUpdated(dupeSlot, swapItem);
+					slotValues[dupeSlot] = previousItemIndex;
 					slots[dupeSlot].ManualSelect(previousItemIndex + 1);
 					break;
 				}

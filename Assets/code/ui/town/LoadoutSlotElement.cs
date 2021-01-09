@@ -22,7 +22,7 @@ public class LoadoutSlotElement : MonoBehaviour {
 			dropdown.options.Add(new TMP_Dropdown.OptionData(item.DisplayName, item.Sprite));
 
 		// The initial value may not be a selectable value, but should still be shown until changed.
-		dropdown.value = Mathf.Clamp(initialIndex + 1, 0, items.Count - 1);
+		dropdown.value = Mathf.Clamp(initialIndex + 1, 0, items.Count);
 		if (initialItem != null)
 			StartCoroutine(SetInitialDisplay(initialItem.name, initialItem.Sprite));
 	}
