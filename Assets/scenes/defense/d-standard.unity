@@ -885,6 +885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 522374529}
+  - component: {fileID: 522374535}
   - component: {fileID: 522374528}
   - component: {fileID: 522374534}
   - component: {fileID: 522374533}
@@ -892,7 +893,7 @@ GameObject:
   - component: {fileID: 522374531}
   - component: {fileID: 522374530}
   m_Layer: 10
-  m_Name: base
+  m_Name: castle
   m_TagString: base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -997,6 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  initialDamage: 0
   onDamaged:
     m_PersistentCalls:
       m_Calls: []
@@ -1089,6 +1091,21 @@ PolygonCollider2D:
       - {x: 2.6191905, y: 3.4799342}
       - {x: 2.6381934, y: 7.389176}
       - {x: -1.5707749, y: 7.403841}
+--- !u!114 &522374535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522374527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b57d9111db4788a0a498a5b4788fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castleManagementService: {fileID: 11400000, guid: 33b4ceaefa69e924c948584ad2eeef27,
+    type: 2}
+  damageComponent: {fileID: 522374531}
 --- !u!1 &579430846
 GameObject:
   m_ObjectHideFlags: 0

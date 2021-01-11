@@ -4,11 +4,11 @@ using UnityEngine;
 namespace data.game {
 public class CastleManagementData : MonoBehaviour { 
 #pragma warning disable 0649
-	[SerializeField] private ReactiveVal<int> health = new ReactiveVal<int>();
-	[SerializeField] private ReactiveVal<int> damage = new ReactiveVal<int>();
+	[SerializeField] private ReactiveVal<long> health = new ReactiveVal<long>();
+	[SerializeField] private ReactiveVal<long> damage = new ReactiveVal<long>();
 #pragma warning restore 0649
 
-	public ReactiveVal<int> Health => health;
-	public ReactiveVal<int> Damage => damage;
+	public ReactiveVal<long> Health => health;
+	public ReactiveVal<long> Damage => damage;
 }
 }

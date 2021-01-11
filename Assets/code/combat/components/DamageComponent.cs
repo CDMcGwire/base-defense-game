@@ -1,7 +1,5 @@
 ﻿using System;
-
 using JetBrains.Annotations;
-
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,29 +17,48 @@ namespace combat.components {
 public class DamageComponent : MonoBehaviour {
 #pragma warning disable 0649
 	[SerializeField] private long maxHealth = 1;
+	[SerializeField] private long initialDamage = 0;
 	[SerializeField] private DamageEvent onDamaged = new DamageEvent();
 	[SerializeField] private DamageEvent onDestroyed = new DamageEvent();
 #pragma warning restore 0649
+
+	private long damage;
 
 	/// <summary>
 	///   The event fired every time damage is dealt. Regardless of value dealt or
 	///   start and end health.
 	/// </summary>
 	[UsedImplicitly] public DamageEvent OnDamaged => onDamaged;
+
 	/// <summary>
 	///   An event fired only when the damage dealt caused the health value to go below
 	///   zero.
 	/// </summary>
 	[UsedImplicitly] public DamageEvent OnDestroyed => onDestroyed;
 
-	public long MaxHealth => maxHealth;
-	public long CurrentHealth { get; private set; }
-	public bool HasHealth => CurrentHealth > 0;
-	public bool Destroyable => maxHealth > 0;
-
-	private void Awake() {
-		CurrentHealth = maxHealth;
+	public long MaxHealth {
+		get => maxHealth;
+		set {
+			var diff = maxHealth - CurrentHealth;
+			maxHealth = value;
+			Damage = maxHealth > 0
+				? diff >= maxHealth
+					? 1
+					: maxHealth - diff
+				: maxHealth;
+		}
 	}
+
+	public long Damage {
+		get => damage;
+		set => damage = value >= 0 ? value : 0;
+	}
+
+	public long CurrentHealth => maxHealth - Damage;
+	public bool Destroyable => maxHealth > 0;
+	public bool Destroyed => Destroyable && CurrentHealth <= 0;
+
+	private void Awake() => Damage = initialDamage;
 
 	/// <summary>Method called by external systems to apply damage.</summary>
 	/// <param name="amount">The amount of damage to deal.</param>
@@ -51,7 +68,7 @@ public class DamageComponent : MonoBehaviour {
 		damageReport.maxHealth = maxHealth;
 		damageReport.damage = amount;
 
-		CurrentHealth -= amount;
+		Damage += amount;
 		damageReport.currentHealth = CurrentHealth;
 
 		onDamaged.Invoke(damageReport);
@@ -63,7 +80,9 @@ public class DamageComponent : MonoBehaviour {
 	/// <param name="report">A <see cref="DamageReport" /> struct.</param>
 	[UsedImplicitly]
 	public void PrintDamageReport(DamageReport report) {
-		Debug.Log($"Initial Health: {report.lastHealth}; New Health: {report.currentHealth}; Damage Dealt: {report.damage}");
+		Debug.Log(
+			$"Initial Health: {report.lastHealth}; New Health: {report.currentHealth}; Damage Dealt: {report.damage}"
+		);
 	}
 }
 
