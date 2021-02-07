@@ -9,11 +9,11 @@ public class ScoreSetter : MonoBehaviour {
 	public RefValue<long> score;
 	public TMP_InputField inputField;
 
-	private Action<long, long> scoreChangeAction;
+	private Action<long> scoreChangeAction;
 	private UnityAction<string> inputAction;
 
 	private void OnEnable() {
-		scoreChangeAction = (previous, current) => inputField.text = $"{current:N}";
+		scoreChangeAction = (current) => inputField.text = $"{current:N}";
 		inputAction = value => {
 			if (double.TryParse(value, out var number))
 				score.Value.Current = (long) number;

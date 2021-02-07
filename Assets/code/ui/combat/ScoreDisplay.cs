@@ -12,17 +12,14 @@ public class ScoreDisplay : RefValueObserver<long> {
 
 	protected override RefValue<long> Reference => playerScore;
 
-	protected override void OnEnableSub(long initialValue) {
-		UpdateScoreDisplay(initialValue);
-	}
+	protected override void OnEnableSub(long initialValue)
+		=> UpdateScoreDisplay(initialValue);
 
 	[UsedImplicitly]
-	public void UpdateScoreDisplay(long value) {
-		text.text = $"{value:00,000,000,000,000}";
-	}
+	public void UpdateScoreDisplay(long value)
+		=> text.text = $"{value:00,000,000,000,000}";
 
-	protected override void OnValueChanged(long previous, long current) {
-		UpdateScoreDisplay(current);
-	}
+	protected override void OnValueChanged(long current)
+		=> UpdateScoreDisplay(current);
 }
 }

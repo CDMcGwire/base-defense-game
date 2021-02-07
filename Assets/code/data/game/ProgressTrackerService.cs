@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using data.refvalues;
+using data.reactive;
 using data.scene;
 using data.service;
 using JetBrains.Annotations;
@@ -29,9 +29,9 @@ public class ProgressTrackerService : DataService<ProgressTrackerData>, IPersist
 	[SerializeField] private SceneLoaderService sceneLoader;
 #pragma warning restore 0649
 
-	public IReactiveReadVal<long> Day => Data.Day;
-	public IReactiveReadVal<GamePhase> Phase => Data.Phase;
-	public IReactiveReadVal<string> Scene => Data.Scene;
+	public IRxReadonlyVal<long> Day => Data.Day;
+	public IRxReadonlyVal<GamePhase> Phase => Data.Phase;
+	public IRxReadonlyVal<string> Scene => Data.Scene;
 
 	/// <summary>
 	/// For checking if the loaded save was in an invalid state.

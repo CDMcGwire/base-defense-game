@@ -11,8 +11,7 @@ public class RefLongDisplay : RefValueObserver<long> {
 	
 	protected override RefValue<long> Reference => reference;
 
-	protected override void OnValueChanged(long previous, long current) {
-		display.text = $"{current:N}";
-	}
+	protected override void OnValueChanged(long current)
+		=> display.text = $"{current:N}";
 }
 }

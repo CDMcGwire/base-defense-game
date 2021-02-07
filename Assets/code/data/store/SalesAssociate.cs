@@ -57,7 +57,7 @@ public class SalesAssociate : RefValueObserver<long> {
 		}
 	}
 
-	protected override void OnValueChanged(long previous, long current)
+	protected override void OnValueChanged(long current)
 		=> UpdatePurchasable();
 
 	private void UpdatePurchasable() {

@@ -1,16 +1,16 @@
-﻿using data.refvalues;
+﻿using data.reactive;
 using UnityEngine;
 
 namespace data.game {
 public class ProgressTrackerData : MonoBehaviour {
 #pragma warning disable 0649
-	[SerializeField] private ReactiveVal<string> scene = new ReactiveVal<string>();
-	[SerializeField] private ReactiveVal<GamePhase> phase = new ReactiveVal<GamePhase>();
-	[SerializeField] private ReactiveVal<long> day = new ReactiveVal<long>();
+	[SerializeField] private RxVal<string> scene = new RxVal<string>();
+	[SerializeField] private RxVal<GamePhase> phase = new RxVal<GamePhase>();
+	[SerializeField] private RxVal<long> day = new RxVal<long>();
 #pragma warning restore 0649
 
-	public ReactiveVal<string> Scene => scene;
-	public ReactiveVal<GamePhase> Phase => phase;
-	public ReactiveVal<long> Day => day;
+	public RxVal<string> Scene => scene;
+	public RxVal<GamePhase> Phase => phase;
+	public RxVal<long> Day => day;
 }
 }

@@ -1,30 +1,30 @@
 ﻿using System.Collections.Generic;
 using combat.components;
 using data.inventory;
-using data.refvalues;
+using data.reactive;
 using UnityEngine;
 
 namespace data.game {
 public class PlayerLoadoutData : MonoBehaviour, ISerializationCallbackReceiver {
 #pragma warning disable 0649
-	[SerializeField] private ReactiveVal<PlayerCharacter> playerCharacter = new ReactiveVal<PlayerCharacter>();
-	[SerializeField] private ReactiveList<InventoryItem> ownedItems = new ReactiveList<InventoryItem>();
-	[SerializeField] private ReactiveVal<int> weaponSlots = new ReactiveVal<int>();
-	[SerializeField] private ReactiveVal<int> activeWeaponSlot = new ReactiveVal<int>();
-	[SerializeField] private ReactiveList<InventoryItem> equippedWeapons = new ReactiveList<InventoryItem>();
-	[SerializeField] private ReactiveVal<int> toolSlots = new ReactiveVal<int>();
-	[SerializeField] private ReactiveList<InventoryItem> equippedTools = new ReactiveList<InventoryItem>();
+	[SerializeField] private RxVal<PlayerCharacter> playerCharacter = new RxVal<PlayerCharacter>();
+	[SerializeField] private RxList<InventoryItem> ownedItems = new RxList<InventoryItem>();
+	[SerializeField] private RxVal<int> weaponSlots = new RxVal<int>();
+	[SerializeField] private RxVal<int> activeWeaponSlot = new RxVal<int>();
+	[SerializeField] private RxList<InventoryItem> equippedWeapons = new RxList<InventoryItem>();
+	[SerializeField] private RxVal<int> toolSlots = new RxVal<int>();
+	[SerializeField] private RxList<InventoryItem> equippedTools = new RxList<InventoryItem>();
 #pragma warning restore 0649
 
 	public HashSet<string> UniqueItems { get; } = new HashSet<string>();
 
-	public ReactiveVal<PlayerCharacter> PlayerCharacter => playerCharacter;
-	public ReactiveList<InventoryItem> OwnedItems => ownedItems;
-	public ReactiveVal<int> WeaponSlots => weaponSlots;
-	public ReactiveVal<int> ActiveWeaponSlot => activeWeaponSlot;
-	public ReactiveList<InventoryItem> EquippedWeapons => equippedWeapons;
-	public ReactiveVal<int> ToolSlots => toolSlots;
-	public ReactiveList<InventoryItem> EquippedTools => equippedTools;
+	public RxVal<PlayerCharacter> PlayerCharacter => playerCharacter;
+	public RxList<InventoryItem> OwnedItems => ownedItems;
+	public RxVal<int> WeaponSlots => weaponSlots;
+	public RxVal<int> ActiveWeaponSlot => activeWeaponSlot;
+	public RxList<InventoryItem> EquippedWeapons => equippedWeapons;
+	public RxVal<int> ToolSlots => toolSlots;
+	public RxList<InventoryItem> EquippedTools => equippedTools;
 
 	public void OnBeforeSerialize() { }
 

@@ -30,6 +30,6 @@ public abstract class RefValueObserver<T> : MonoBehaviour {
 
 	protected virtual void OnDisableSub(T finalValue) { }
 
-	protected abstract void OnValueChanged(T previous, T current);
+	protected abstract void OnValueChanged(T current);
 }
 }

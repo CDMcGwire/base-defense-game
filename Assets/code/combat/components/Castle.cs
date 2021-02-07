@@ -9,11 +9,11 @@ public class Castle : MonoBehaviour {
 	[SerializeField] private DamageComponent damageComponent;
 #pragma warning restore 0649
 
-	private Action<long, long> healthChangeAction;
+	private Action<long> healthChangeAction;
 
 	private void OnEnable() {
 		damageComponent.MaxHealth = castleManagementService.Health.Current;
-		healthChangeAction = (last, current) => damageComponent.MaxHealth = current;
+		healthChangeAction = (current) => damageComponent.MaxHealth = current;
 		castleManagementService.Health.OnChanged += healthChangeAction;
 
 		damageComponent.Damage = castleManagementService.Damage.Current;

@@ -5,7 +5,7 @@ using combat.components;
 using combat.weapon;
 using data.inventory;
 using data.loadout;
-using data.refvalues;
+using data.reactive;
 using data.service;
 using UnityEngine;
 
@@ -22,13 +22,13 @@ public class PlayerLoadoutService : DataService<PlayerLoadoutData>, IPersistable
 	[SerializeField] private List<InventoryItem> initialEquippedTools = new List<InventoryItem>();
 #pragma warning restore 0649
 
-	public IReactiveReadVal<PlayerCharacter> PlayerCharacter => Data.PlayerCharacter;
-	public IReactiveReadList<InventoryItem> OwnedItems => Data.OwnedItems;
-	public IReactiveReadVal<int> WeaponSlots => Data.WeaponSlots;
-	public IReactiveReadVal<int> ActiveWeaponSlot => Data.ActiveWeaponSlot;
-	public IReactiveReadList<InventoryItem> EquippedWeapons => Data.EquippedWeapons;
-	public IReactiveReadVal<int> ToolSlots => Data.ToolSlots;
-	public IReactiveReadList<InventoryItem> EquippedTools => Data.EquippedTools;
+	public IRxReadonlyVal<PlayerCharacter> PlayerCharacter => Data.PlayerCharacter;
+	public IRxReadonlyList<InventoryItem> OwnedItems => Data.OwnedItems;
+	public IRxReadonlyVal<int> WeaponSlots => Data.WeaponSlots;
+	public IRxReadonlyVal<int> ActiveWeaponSlot => Data.ActiveWeaponSlot;
+	public IRxReadonlyList<InventoryItem> EquippedWeapons => Data.EquippedWeapons;
+	public IRxReadonlyVal<int> ToolSlots => Data.ToolSlots;
+	public IRxReadonlyList<InventoryItem> EquippedTools => Data.EquippedTools;
 
 	public override void Initialize() {
 		ChangePlayerCharacter(initialPlayerCharacter);

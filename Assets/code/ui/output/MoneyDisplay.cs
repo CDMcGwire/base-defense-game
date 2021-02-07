@@ -12,9 +12,9 @@ public class MoneyDisplay : RefValueObserver<long> {
 	protected override RefValue<long> Reference => money;
 
 	protected override void OnEnableSub(long initialValue)
-		=> OnValueChanged(0, initialValue);
+		=> OnValueChanged(initialValue);
 
-	protected override void OnValueChanged(long previous, long current)
+	protected override void OnValueChanged(long current)
 		=> textDisplay.text = $"${current:N0}";
 }
 }

@@ -1,4 +1,5 @@
-﻿using data.service;
+﻿using data.reactive;
+using data.service;
 using UnityEngine;
 
 namespace data.refvalues {
@@ -14,7 +15,7 @@ public abstract class RefValue<T> : RefValue {
 
 	protected override string HandleId => "ref-values";
 
-	public ReactiveVal<T> Value
+	public RxVal<T> Value
 		=> Data != null
 			? Data.Lookup<T>(name)
 			  ?? Data.Publish(name, initialValue)
