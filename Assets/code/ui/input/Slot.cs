@@ -16,7 +16,7 @@ public class Slot : MonoBehaviour {
 	[SerializeField] private string emptyText;
 	[SerializeField] private Sprite emptySprite;
 	[Space(10)]
-	[SerializeField] private UnityEvent<int> onValueChanged = new UnityEvent<int>();
+	[SerializeField] private UnityEvent<int> onValueChanged = new();
 #pragma warning restore 0649
 
 	/// <summary>

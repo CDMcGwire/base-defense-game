@@ -12,7 +12,7 @@ namespace data.game {
 public class LoadScreen : MonoBehaviour {
 #pragma warning disable 0649
 	[SerializeField] private bool finishImmediately;
-	[SerializeField] private UnityEvent onLoadComplete = new UnityEvent();
+	[SerializeField] private UnityEvent onLoadComplete = new();
 #pragma warning restore 0649
 
 	private AsyncOperation operation;

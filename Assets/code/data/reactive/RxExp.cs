@@ -149,6 +149,6 @@ public class RxExp<T1, T2, TResult> : IRxReadonlyVal<TResult> {
 /// <typeparam name="T">The input and output type of the resulting expressions.</typeparam>
 public static class RxExp<T> {
 	private static readonly Func<T, T> PassthroughFunc = value => value;
-	public static RxExp<T, T> Passthrough => new RxExp<T, T>(PassthroughFunc);
+	public static RxExp<T, T> Passthrough => new(PassthroughFunc);
 }
 }

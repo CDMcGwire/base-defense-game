@@ -9,7 +9,7 @@ public class ServiceDataProvider : MonoBehaviour {
 	private static ServiceDataProvider dataProvider;
 	private static bool quitting;
 
-	private readonly Dictionary<string, MonoBehaviour> dataComponents = new Dictionary<string, MonoBehaviour>();
+	private readonly Dictionary<string, MonoBehaviour> dataComponents = new();
 
 	private void Awake() {
 		DontDestroyOnLoad(this);

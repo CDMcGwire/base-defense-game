@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ui {
 [CreateAssetMenu(fileName = "menu-manager", menuName = "Managers/ActiveMenu")]
 public class ActiveMenuManager : ScriptableObject {
-	private readonly Stack<ActiveMenu> menuStack = new Stack<ActiveMenu>();
+	private readonly Stack<ActiveMenu> menuStack = new();
 
 	public void NavigateTo(ActiveMenu menu) {
 		if (menu == null) return;

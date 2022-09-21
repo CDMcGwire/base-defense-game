@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace combat.effects.core {
 public class CombatEffectPool : MonoBehaviour {
-	private readonly List<CombatEffect> effectChain = new List<CombatEffect>();
+	private readonly List<CombatEffect> effectChain = new();
 
 	// These collections are reused every time the effect chain is recalculated to reduce allocation costs.
 	// Am I pre-optimizing too much? Maybe. But I've always been told allocating collections is expensive af
 	// and this thing is already looking like a computer vision algorithm.
-	private readonly Dictionary<string, CombatEffectSource> effectSources = new Dictionary<string, CombatEffectSource>();
-	private readonly ModsByKind modChainsByKind = new ModsByKind();
-	private readonly Dictionary<string, CombatModSource> modSources = new Dictionary<string, CombatModSource>();
+	private readonly Dictionary<string, CombatEffectSource> effectSources = new();
+	private readonly ModsByKind modChainsByKind = new();
+	private readonly Dictionary<string, CombatModSource> modSources = new();
 
 	// These variables are for limiting how frequently this rather expensive calculation process can occur.
 	// When the list of effect and mod sources is modified, the flag is set to trigger the compilation on LateUpdate, once

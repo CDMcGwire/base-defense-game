@@ -26,9 +26,9 @@ public struct RxConst<T> : IRxReadonlyVal<T> {
 }
 
 public static class RxConst {
-	public static RxConst<bool> True = new RxConst<bool>(true);
-	public static RxConst<bool> False = new RxConst<bool>(false);
-	public static RxConst<int> Zero = new RxConst<int>(0);
-	public static RxConst<long> ZeroL = new RxConst<long>(0);
+	public static RxConst<bool> True = new(true);
+	public static RxConst<bool> False = new(false);
+	public static RxConst<int> Zero = new(0);
+	public static RxConst<long> ZeroL = new(0);
 }
 }

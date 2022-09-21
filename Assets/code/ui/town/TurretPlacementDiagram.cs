@@ -12,8 +12,7 @@ public class TurretPlacementDiagram : MonoBehaviour {
 	[SerializeField] private List<Slot> turretEquipSlots;
 #pragma warning restore 0649
 
-	private readonly SortedList<string, TMP_Dropdown.OptionData> sortedTurretOptions =
-		new SortedList<string, TMP_Dropdown.OptionData>();
+	private readonly SortedList<string, TMP_Dropdown.OptionData> sortedTurretOptions = new();
 
 	public event Action<int, string> OnSlotChanged;
 

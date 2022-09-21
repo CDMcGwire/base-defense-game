@@ -24,12 +24,12 @@ public class CastleManagementService : DataService<CastleManagementData>, IPersi
 
 	public long BaseHealth => initialHealth;
 
-	public IRxReadonlyVal<long> Health => Data.Health;
-	public IRxReadonlyVal<long> Damage => Data.Damage;
-	public IRxReadonlyVal<int> MoatTier => Data.MoatTier;
-	public IRxReadonlyVal<int> TurretSlots => Data.TurretSlots;
-	public IRxReadonlyList<OwnedTurret> OwnedTurrets => Data.OwnedTurrets;
-	public IRxReadonlyList<OwnedTurret> EquippedTurrets => Data.EquippedTurrets;
+	public IRxReadonlyVal<long> Health => Data != null ? Data.Health : null;
+	public IRxReadonlyVal<long> Damage => Data != null ? Data.Damage : null;
+	public IRxReadonlyVal<int> MoatTier => Data != null ? Data.MoatTier : null;
+	public IRxReadonlyVal<int> TurretSlots => Data != null ? Data.TurretSlots : null;
+	public IRxReadonlyList<OwnedTurret> OwnedTurrets => Data != null ? Data.OwnedTurrets : null;
+	public IRxReadonlyList<OwnedTurret> EquippedTurrets => Data != null ? Data.EquippedTurrets : null;
 
 	private void OnValidate() {
 		while (initialEquippedTurrets.Count < initialTurretSlots)

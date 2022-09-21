@@ -8,15 +8,15 @@ using UnityEngine;
 namespace data.game {
 public class CastleManagementData : MonoBehaviour {
 #pragma warning disable 0649
-	[SerializeField] private RxVal<long> health = new RxVal<long>();
-	[SerializeField] private RxVal<long> damage = new RxVal<long>();
-	[SerializeField] private RxVal<int> moatTier = new RxVal<int>();
-	[SerializeField] private RxVal<int> turretSlots = new RxVal<int>();
-	[SerializeField] private RxList<OwnedTurret> equippedTurrets = new RxList<OwnedTurret>();
-	[SerializeField] private RxList<OwnedTurret> ownedTurrets = new RxList<OwnedTurret>();
+	[SerializeField] private RxVal<long> health = new();
+	[SerializeField] private RxVal<long> damage = new();
+	[SerializeField] private RxVal<int> moatTier = new();
+	[SerializeField] private RxVal<int> turretSlots = new();
+	[SerializeField] private RxList<OwnedTurret> equippedTurrets = new();
+	[SerializeField] private RxList<OwnedTurret> ownedTurrets = new();
 #pragma warning restore 0649
 
-	public Dictionary<string, OwnedTurret> turretsByType = new Dictionary<string, OwnedTurret>();
+	public Dictionary<string, OwnedTurret> turretsByType = new();
 	public InventorySlotManager<OwnedTurret> EquippedTurretManager;
 
 	public RxVal<long> Health => health;

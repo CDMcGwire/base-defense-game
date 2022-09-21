@@ -12,8 +12,8 @@ public class MenuSwitcher : MonoBehaviour {
 	[SerializeField] private GameMenuGroupEntry[] menus;
 #pragma warning restore 0649
 
-	private readonly LinkedList<string> history = new LinkedList<string>();
-	private readonly Dictionary<string, GameMenu> menuLookup = new Dictionary<string, GameMenu>();
+	private readonly LinkedList<string> history = new();
+	private readonly Dictionary<string, GameMenu> menuLookup = new();
 	private string currentMenuName = "";
 
 #if UNITY_EDITOR

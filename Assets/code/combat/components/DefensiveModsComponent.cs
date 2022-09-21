@@ -22,13 +22,13 @@ public class DefensiveModsComponent : MonoBehaviour {
 	[SerializeField] private List<HitLocation> locationalMods;
 #pragma warning restore 0649
 
-	private readonly Dictionary<int, ModsByKind> locationalModSources = new Dictionary<int, ModsByKind>();
+	private readonly Dictionary<int, ModsByKind> locationalModSources = new();
 
 	/// <summary>
 	///   The set of modifiers that apply regardless of specific location
 	///   targeted.
 	/// </summary>
-	public ModsByKind BaseMods { get; } = new ModsByKind();
+	public ModsByKind BaseMods { get; } = new();
 
 	/// <summary>The set of modifiers that apply to the given component instance id.</summary>
 	/// <param name="locationId">

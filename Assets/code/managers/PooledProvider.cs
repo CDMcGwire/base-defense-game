@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace managers {
 public class PooledProvider : Provider {
-	private readonly HashSet<int> onLoan = new HashSet<int>();
+	private readonly HashSet<int> onLoan = new();
 
-	private readonly LinkedList<GameObject> pool = new LinkedList<GameObject>();
+	private readonly LinkedList<GameObject> pool = new();
 
 	private void Awake() {
 		if (lazyInstantiate) return;

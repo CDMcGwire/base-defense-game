@@ -9,7 +9,7 @@ public class DicSerial<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationC
 	[SerializeField] private List<SerialPair<TKey, TValue>> serialData;
 #pragma warning restore 0649
 
-	private readonly List<SerialPair<TKey, TValue>> invalidEntries = new List<SerialPair<TKey, TValue>>(0);
+	private readonly List<SerialPair<TKey, TValue>> invalidEntries = new(0);
 
 	public void OnBeforeSerialize() {
 		serialData.Clear();

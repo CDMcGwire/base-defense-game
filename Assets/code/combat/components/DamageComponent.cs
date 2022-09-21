@@ -18,8 +18,8 @@ public class DamageComponent : MonoBehaviour {
 #pragma warning disable 0649
 	[SerializeField] private long maxHealth = 1;
 	[SerializeField] private long initialDamage = 0;
-	[SerializeField] private DamageEvent onDamaged = new DamageEvent();
-	[SerializeField] private DamageEvent onDestroyed = new DamageEvent();
+	[SerializeField] private DamageEvent onDamaged = new();
+	[SerializeField] private DamageEvent onDestroyed = new();
 #pragma warning restore 0649
 
 	private long damage;

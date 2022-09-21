@@ -14,7 +14,7 @@ public class PhysicalDamageEffectData : CombatEffectData<PhysicalDamageEffect> {
 
 [Serializable]
 public class PhysicalDamageEffect : CombatEffect {
-	[SerializeField] private LiveLong amount = new LiveLong(1);
+	[SerializeField] private LiveLong amount = new(1);
 
 	public override CombatEffect Stack(CombatEffect next, int stackCount) {
 		if (next is PhysicalDamageEffect safeNext)

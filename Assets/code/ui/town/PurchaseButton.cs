@@ -13,10 +13,8 @@ public class PurchaseButton : MonoBehaviour {
 	[SerializeField] private string costTemplate = "${}";
 #pragma warning restore 0649
 
-	private readonly RxExp<long, long, bool> canAfford
-		= new RxExp<long, long, bool>((cost, funds) => cost <= funds);
-	private readonly RxExp<bool, bool, bool> canPurchase
-		= new RxExp<bool, bool, bool>((affordable, available) => affordable && available);
+	private readonly RxExp<long, long, bool> canAfford = new((cost, funds) => cost <= funds);
+	private readonly RxExp<bool, bool, bool> canPurchase = new((affordable, available) => affordable && available);
 
 	private void Start()
 		=> canPurchase.OnChanged += purchasable => button.interactable = purchasable;

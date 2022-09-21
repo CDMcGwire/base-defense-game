@@ -8,7 +8,7 @@ namespace combat.effects.core {
 public class CombatEffectSource : ISerializationCallbackReceiver {
 #pragma warning disable 0649
 	[SerializeField] private string id = "default-source";
-	[SerializeField] private List<PayloadDataSource<CombatEffect>> effectsData = new List<PayloadDataSource<CombatEffect>>();
+	[SerializeField] private List<PayloadDataSource<CombatEffect>> effectsData = new();
 #pragma warning restore 0649
 	
 	public string Id => id;

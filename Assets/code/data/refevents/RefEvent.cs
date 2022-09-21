@@ -5,9 +5,9 @@ using UnityEngine;
 namespace data.refevents {
 [CreateAssetMenu(fileName = "event", menuName = "Reference Events/Simple", order = 1)]
 public class RefEvent : ScriptableObject {
-	private readonly HashSet<RefEventListener> listeners = new HashSet<RefEventListener>();
-	private readonly List<RefEventListener> readyToRemove = new List<RefEventListener>();
-	private readonly object syncObject = new object();
+	private readonly HashSet<RefEventListener> listeners = new();
+	private readonly List<RefEventListener> readyToRemove = new();
+	private readonly object syncObject = new();
 	private bool triggering;
 
 	public void Add(RefEventListener listener) {
@@ -37,9 +37,9 @@ public class RefEvent : ScriptableObject {
 }
 
 public class RefEvent<T> : ScriptableObject {
-	private readonly HashSet<RefEventListener<T>> listeners = new HashSet<RefEventListener<T>>();
-	private readonly List<RefEventListener<T>> readyToRemove = new List<RefEventListener<T>>();
-	private readonly object syncObject = new object();
+	private readonly HashSet<RefEventListener<T>> listeners = new();
+	private readonly List<RefEventListener<T>> readyToRemove = new();
+	private readonly object syncObject = new();
 	private bool triggering;
 
 	public void Add(RefEventListener<T> listener) {

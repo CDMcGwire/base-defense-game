@@ -11,7 +11,7 @@ public class OwnedItemsFilter : StoreFilter {
 	[SerializeField] private PlayerLoadoutService loadout;
 #pragma warning restore 0649
 
-	private readonly HashSet<string> ownedItems = new HashSet<string>();
+	private readonly HashSet<string> ownedItems = new();
 	
 	protected override void BeforeProcess() {
 		ownedItems.Clear();

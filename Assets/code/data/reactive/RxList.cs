@@ -100,6 +100,8 @@ public class RxList<T> : RxVal, IList<T>, IRxReadonlyList<T> {
 		var index = list.IndexOf(item);
 		if (index < 0) return false;
 		list.RemoveAt(index);
+		OnItemRemoved?.Invoke(item, index);
+		OnCountChanged?.Invoke(list.Count);
 		return true;
 	}
 

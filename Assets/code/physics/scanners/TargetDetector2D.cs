@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 namespace physics.scanners {
 public class TargetDetector2D : MonoBehaviour {
-	private readonly HashSet<int> targetFilter = new HashSet<int>();
+	private readonly HashSet<int> targetFilter = new();
 
 	private void Awake() {
 		TargetFilter.Build(filteredTargetTypes, targetFilter);
@@ -24,7 +24,7 @@ public class TargetDetector2D : MonoBehaviour {
 		if (!targetFilter.Contains(typeId)) onLost.Invoke();
 	}
 #pragma warning disable 0649
-	[SerializeField] private List<string> filteredTargetTypes = new List<string>();
+	[SerializeField] private List<string> filteredTargetTypes = new();
 	[SerializeField] private TargetDetectedEvent onDetected;
 	[SerializeField] private TargetDetectedEvent onLost;
 #pragma warning restore 0649

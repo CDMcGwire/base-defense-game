@@ -8,8 +8,8 @@ public class StoreShelf : MonoBehaviour {
 	[SerializeField] private StoreListingElement listElement;
 #pragma warning restore 0649
 
-	private readonly List<StoreListingElement> elementPool = new List<StoreListingElement>();
-	private readonly List<StoreListingElement> activeElements = new List<StoreListingElement>();
+	private readonly List<StoreListingElement> elementPool = new();
+	private readonly List<StoreListingElement> activeElements = new();
 
 	public IReadOnlyList<StoreListingElement> ListedItems => activeElements;
 

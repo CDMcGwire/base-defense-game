@@ -7,19 +7,30 @@
             "actions": [
                 {
                     "name": "Target",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "13d1cdc3-f582-4fee-87d7-8525a5d0886c",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "Fire",
+                    "name": "TriggerPull",
                     "type": "Button",
                     "id": "569cd417-af60-47e1-8e06-90dbd76e5b93",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerRelease",
+                    "type": "Button",
+                    "id": "63c1b6aa-4215-463c-b083-a8c25e78561b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "SwitchWeapon1",
@@ -27,7 +38,8 @@
                     "id": "3fc4dbd3-a235-4681-b172-9c1814d02af4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "SwitchWeapon2",
@@ -35,7 +47,8 @@
                     "id": "4c5e8bdd-466a-4c95-bcd5-b3e93dbc797d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "SwitchWeapon3",
@@ -43,7 +56,8 @@
                     "id": "383d6709-e805-48ee-bb6e-7a0e62e747ac",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "SwitchWeapon4",
@@ -51,7 +65,8 @@
                     "id": "189cf768-4d51-4b26-af69-a0f5198e268a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -61,7 +76,7 @@
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Touch",
                     "action": "Target",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -73,7 +88,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "TriggerPull",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -84,7 +99,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "TriggerPull",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -129,6 +144,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "SwitchWeapon4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfa42d10-5b7a-4f57-a435-a0361e105f51",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TriggerRelease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8917179d-eedc-470d-a5a8-76e8c9e4309d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TriggerRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

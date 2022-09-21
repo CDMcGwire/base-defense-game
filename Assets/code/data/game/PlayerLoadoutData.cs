@@ -7,16 +7,16 @@ using UnityEngine;
 namespace data.game {
 public class PlayerLoadoutData : MonoBehaviour, ISerializationCallbackReceiver {
 #pragma warning disable 0649
-	[SerializeField] private RxVal<PlayerCharacter> playerCharacter = new RxVal<PlayerCharacter>();
-	[SerializeField] private RxList<InventoryItem> ownedItems = new RxList<InventoryItem>();
-	[SerializeField] private RxVal<int> weaponSlots = new RxVal<int>();
-	[SerializeField] private RxVal<int> activeWeaponSlot = new RxVal<int>();
-	[SerializeField] private RxList<InventoryItem> equippedWeapons = new RxList<InventoryItem>();
-	[SerializeField] private RxVal<int> toolSlots = new RxVal<int>();
-	[SerializeField] private RxList<InventoryItem> equippedTools = new RxList<InventoryItem>();
+	[SerializeField] private RxVal<PlayerCharacter> playerCharacter = new();
+	[SerializeField] private RxList<InventoryItem> ownedItems = new();
+	[SerializeField] private RxVal<int> weaponSlots = new();
+	[SerializeField] private RxVal<int> activeWeaponSlot = new();
+	[SerializeField] private RxList<InventoryItem> equippedWeapons = new();
+	[SerializeField] private RxVal<int> toolSlots = new();
+	[SerializeField] private RxList<InventoryItem> equippedTools = new();
 #pragma warning restore 0649
 
-	public HashSet<string> UniqueItems { get; } = new HashSet<string>();
+	public HashSet<string> UniqueItems { get; } = new();
 
 	public RxVal<PlayerCharacter> PlayerCharacter => playerCharacter;
 	public RxList<InventoryItem> OwnedItems => ownedItems;

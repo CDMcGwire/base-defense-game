@@ -10,7 +10,7 @@ public class MobSpawnZone : MonoBehaviour {
 	[SerializeField] private MobSourceData mobSourceData;
 #pragma warning restore 0649
 
-	private readonly List<Mob> mobSpawnTray = new List<Mob>();
+	private readonly List<Mob> mobSpawnTray = new();
 
 	private MobSource mobSource;
 
@@ -33,7 +33,7 @@ public class MobSpawnZone : MonoBehaviour {
 		=> Instantiate(prefab, NextSpawn(groundSpawn.bounds), Quaternion.identity);
 
 	private static Vector2 NextSpawn(Bounds bounds)
-		=> new Vector2(
+		=> new(
 			Random.Range(bounds.min.x, bounds.max.x),
 			Random.Range(bounds.min.y, bounds.max.y)
 		);

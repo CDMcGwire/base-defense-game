@@ -18,7 +18,7 @@ public class ProceduralScenePicker : ScenePicker {
 	[SerializeField] private List<ProceduralScene> scenePool;
 #pragma warning restore 0649
 
-	private readonly SortedList<long, ProceduralScene> sortedScenes = new SortedList<long, ProceduralScene>();
+	private readonly SortedList<long, ProceduralScene> sortedScenes = new();
 
 	// TODO: This isn't reliable enough. Different environments treat it differently.
 	private void OnEnable() => SortScenes();

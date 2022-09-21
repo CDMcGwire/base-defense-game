@@ -14,7 +14,7 @@ public class LoadGameMenu : MonoBehaviour {
 	[SerializeField] private Transform listParent;
 #pragma warning restore 0649
 
-	private readonly List<ListedGameSaveElement> listElementPool = new List<ListedGameSaveElement>();
+	private readonly List<ListedGameSaveElement> listElementPool = new();
 
 	private void OnEnable() {
 		var saveFiles = saveManager.ListSaves();

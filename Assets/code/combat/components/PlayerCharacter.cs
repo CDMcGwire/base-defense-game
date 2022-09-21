@@ -90,6 +90,18 @@ public class PlayerCharacter : Combatant {
 	}
 
 	[UsedImplicitly]
+	public void PullTrigger(InputAction.CallbackContext inputContext) {
+		if (currentWeapon == null || !inputContext.performed) return;
+		currentWeapon.BeginAttack();
+	}
+
+	[UsedImplicitly]
+	public void ReleaseTrigger(InputAction.CallbackContext inputContext) {
+		if (currentWeapon == null || !inputContext.performed) return;
+		currentWeapon.ReleaseAttack();
+	}
+
+	[UsedImplicitly]
 	public void FireActiveWeapon(InputAction.CallbackContext inputContext) {
 		if (currentWeapon == null) return;
 		currentWeapon.HandleInput(inputContext);

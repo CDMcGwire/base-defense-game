@@ -37,10 +37,10 @@ public class ContractorsMenu : MonoBehaviour {
 	private readonly RxExp<long, long> fundsInput = RxExp<long>.Passthrough;
 	private readonly RxExp<int, int> moatTierInput = RxExp<int>.Passthrough;
 	private readonly RxExp<int, int> turretSlotsInput = RxExp<int>.Passthrough;
-	private readonly Dictionary<string, RxExp<int, int>> turretCountInputs = new Dictionary<string, RxExp<int, int>>();
-	private readonly Dictionary<string, RxExp<int, int>> turretTierInputs = new Dictionary<string, RxExp<int, int>>();
-	private readonly RxListPassthrough<OwnedTurret> ownedTurretsInput = new RxListPassthrough<OwnedTurret>();
-	private readonly RxListPassthrough<OwnedTurret> equippedTurretsInput = new RxListPassthrough<OwnedTurret>();
+	private readonly Dictionary<string, RxExp<int, int>> turretCountInputs = new();
+	private readonly Dictionary<string, RxExp<int, int>> turretTierInputs = new();
+	private readonly RxListPassthrough<OwnedTurret> ownedTurretsInput = new();
+	private readonly RxListPassthrough<OwnedTurret> equippedTurretsInput = new();
 
 	private void Awake() {
 		// Hook up health management systems.

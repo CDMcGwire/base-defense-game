@@ -15,7 +15,7 @@ public class InventoryItem : ScriptableObject, IEquatable<InventoryItem> {
 	[SerializeField] private Object data;
 #pragma warning restore 0649
 	
-	private HashSet<Type> dataTypes = new HashSet<Type>();
+	private HashSet<Type> dataTypes = new();
 
 	public string DisplayName => displayName;
 	public Sprite Sprite => sprite;

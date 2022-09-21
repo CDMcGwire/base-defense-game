@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:data.game:PlayerLoadoutSo
   initialPlayerCharacter: {fileID: 8376844987239688325, guid: e01cfd6e9c86e2d42b6cab8fe17721fa,
     type: 3}
-  initialOwnedItems: []
+  initialOwnedItems:
+  - {fileID: 11400000, guid: da1380836c8573146ac29dcf096728b2, type: 2}
   initialWeaponSlots: 3
   initialActiveWeaponSlot: 0
   initialEquippedWeapons:
   - {fileID: 11400000, guid: da1380836c8573146ac29dcf096728b2, type: 2}
-  initialToolSlots: 2
+  initialToolSlots: 0
   initialEquippedTools: []

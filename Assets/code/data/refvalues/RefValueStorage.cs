@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace data.refvalues {
 public class RefValueStorage : MonoBehaviour {
-	private readonly Dictionary<string, RxVal> values = new Dictionary<string, RxVal>();
+	private readonly Dictionary<string, RxVal> values = new();
 
 	public RxVal<T> Lookup<T>(string key) {
 		if (values.ContainsKey(key))

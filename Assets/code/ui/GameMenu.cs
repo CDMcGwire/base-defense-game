@@ -33,10 +33,10 @@ public class GameMenu : MonoBehaviour {
 	[Tooltip("Should the owning game object be destroyed on close?"), SerializeField]
 	private bool destroyOnClose;
 
-	[SerializeField] private UnityEvent onOpening = new UnityEvent();
-	[SerializeField] private UnityEvent onOpened = new UnityEvent();
-	[SerializeField] private UnityEvent onClosing = new UnityEvent();
-	[SerializeField] private UnityEvent onClosed = new UnityEvent();
+	[SerializeField] private UnityEvent onOpening = new();
+	[SerializeField] private UnityEvent onOpened = new();
+	[SerializeField] private UnityEvent onClosing = new();
+	[SerializeField] private UnityEvent onClosed = new();
 #pragma warning restore 0649
 
 	private Animator animator;

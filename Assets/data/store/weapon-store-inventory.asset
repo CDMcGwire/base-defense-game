@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: weapon-store-inventory
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: da1380836c8573146ac29dcf096728b2, type: 2}
-  - {fileID: 11400000, guid: 36e4655dc40e6584085d9b7e45a8ac3b, type: 2}
-  - {fileID: 11400000, guid: bbe016512600f4e43b853220df792c85, type: 2}
+  - {fileID: 11400000, guid: 0010e4766a6ceac419f022c09002627c, type: 2}
+  - {fileID: 11400000, guid: 01e5ff4db129bba49acc481eef789563, type: 2}

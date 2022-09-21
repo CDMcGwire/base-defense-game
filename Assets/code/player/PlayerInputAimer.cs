@@ -47,10 +47,10 @@ public class PlayerInputAimer : MonoBehaviour {
 
 		if (IkEnabled) PositionIkHandle(mousePos);
 
-		if (!IkEnabled || IkTargetNotOverlapped) {
-			if (target != null) AimFromPoint(mousePos);
-			else AimFromRoot(mousePos);
-		}
+		if (IkEnabled && !IkTargetNotOverlapped) return;
+		
+		if (target != null) AimFromPoint(mousePos);
+		else AimFromRoot(mousePos);
 	}
 
 	private void AimFromRoot(Vector2 mousePos) {

@@ -11,11 +11,11 @@ namespace spawning {
 public class MobSourceData : ScriptableObject, ISerializationCallbackReceiver {
 #pragma warning disable 0649
 	[SerializeField] private ProgressTrackerService progressTracker;
-	[SerializeField] private List<ProceduralSpawnGenerator> spawnGenerators = new List<ProceduralSpawnGenerator>();
-	[SerializeField] private List<TimedSpawn> scriptedSpawnEntries = new List<TimedSpawn>();
+	[SerializeField] private List<ProceduralSpawnGenerator> spawnGenerators = new();
+	[SerializeField] private List<TimedSpawn> scriptedSpawnEntries = new();
 #pragma warning restore 0649
 
-	private readonly SortedList<float, TimedSpawn> sortedScriptedSpawns = new SortedList<float, TimedSpawn>();
+	private readonly SortedList<float, TimedSpawn> sortedScriptedSpawns = new();
 
 	public void OnBeforeSerialize() { }
 
@@ -164,7 +164,7 @@ public class ProceduralSpawnGenerator {
 		=> day >= firstDay && (lastDay < 1 || day <= lastDay);
 
 	public PeriodicSpawn CalculatePeriodicSpawn(long day)
-		=> new PeriodicSpawn(
+		=> new(
 			mob,
 			intervalScaling.At(baseInterval, day),
 			relativeVariationScaling.At(baseRelativeVariation, day),

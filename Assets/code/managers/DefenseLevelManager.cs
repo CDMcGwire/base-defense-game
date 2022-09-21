@@ -21,7 +21,7 @@ public class DefenseLevelManager : MonoBehaviour {
 	}
 #pragma warning disable 0649
 	[SerializeField] private float dayLength = 120f;
-	[SerializeField] private UnityEvent onDayEnd = new UnityEvent();
+	[SerializeField] private UnityEvent onDayEnd = new();
 #pragma warning restore 0649
 }
 }

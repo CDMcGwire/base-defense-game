@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace combat.targeting {
 public class CollisionTargeter2D : Targeter {
-	private readonly List<ContactPoint2D> contactPointsHolder = new List<ContactPoint2D>();
+	private readonly List<ContactPoint2D> contactPointsHolder = new();
 
 	private void Awake() {
 		if (GetComponent<Collider2D>() == null)

@@ -15,7 +15,7 @@ public class CombatModSource : ISerializationCallbackReceiver {
 	[SerializeField] private List<PayloadDataSource<CombatMod>> modData;
 #pragma warning restore 0649
 	
-	private readonly Dictionary<string, List<CombatMod>> modsByKind = new Dictionary<string, List<CombatMod>>();
+	private readonly Dictionary<string, List<CombatMod>> modsByKind = new();
 
 	public string Id => id;
 

@@ -12,14 +12,13 @@ public class DisplaySettingsManager : ScriptableObject {
 	private const string Pref_Fr_Target = "d-fr-target";
 	private const string Pref_Fr_Vsync = "d-fr-vsync";
 
-	private readonly Dictionary<string, Resolution> resolutions = new Dictionary<string, Resolution>();
-	private readonly Dictionary<string, FullScreenMode> fsModeLabels = new Dictionary<string, FullScreenMode> {
+	private readonly Dictionary<string, Resolution> resolutions = new();
+	private readonly Dictionary<string, FullScreenMode> fsModeLabels = new() {
 		{"Fullscreen Window", FullScreenMode.FullScreenWindow},
 		{"Exclusive Fullscreen", FullScreenMode.ExclusiveFullScreen},
 		{"Standard Window", FullScreenMode.Windowed},
 	};
-	private readonly SortedList<Resolution, string> sortedResolutions =
-		new SortedList<Resolution, string>(new ResolutionComparer());
+	private readonly SortedList<Resolution, string> sortedResolutions = new(new ResolutionComparer());
 
 	public IEnumerable<string> SupportedResolutionLabels => sortedResolutions.Values;
 	public string CurrentResolution => ToResLabel(Screen.currentResolution);
