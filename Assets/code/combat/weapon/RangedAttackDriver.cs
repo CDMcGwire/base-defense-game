@@ -60,7 +60,8 @@ public abstract class RangedAttackDriver : AttackDriver {
 		for (var i = 0; i < roundsPerShot; i++) OnFire();
 		foreach (var system in particleSystems) 
 			system.Emit(1);
-		audioSource.PlayOneShot(shotSound);
+		if (audioSource != null)
+			audioSource.PlayOneShot(shotSound);
 		shotTimer = minInterval;
 		if (remainingBurstRounds > 0) remainingBurstRounds--;
 	}

@@ -17,12 +17,7 @@ public class AnimAttackDriver : AttackDriver {
 		animator.ResetTrigger(triggerHash);
 	}
 
-	public void ClearTargets() {
-		Weapon.ClearTargetingMemory();
-	}
-
 	public void SignalAttackEnd() {
-		Weapon.ClearTargetingMemory();
 		Weapon.OnAttackEnd.Invoke();
 	}
 

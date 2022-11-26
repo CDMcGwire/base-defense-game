@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-
 using combat.components;
-
+using sfx;
 using UnityEngine;
 
 namespace combat.effects.core {
@@ -11,13 +10,26 @@ namespace combat.effects.core {
 /// </summary>
 [RequireComponent(typeof(DefensiveModsComponent))]
 public class CombatEffectResolver : MonoBehaviour {
-	// TODO: Design system for supplying final target types from data.
-	public DamageComponent DamageComponent { get; private set; }
-	private DefensiveModsComponent DefensiveModsSource { get; set; }
+#pragma warning disable 0649
+	[SerializeField] private DamageComponent damageComponent;
+	[SerializeField] private DefensiveModsComponent defensiveModsSource;
+	[SerializeField] private HitSfxGenerator hitSfxGenerator;
+#pragma warning restore 0649
+
+	public DamageComponent DamageComponent => damageComponent;
+	public HitSfxGenerator HitSfxGenerator => hitSfxGenerator;
 
 	private void Awake() {
-		DamageComponent = GetComponent<DamageComponent>();
-		DefensiveModsSource = GetComponent<DefensiveModsComponent>();
+		Debug.AssertFormat(
+			damageComponent != null,
+			"CombatEffectResolver on [{0}] does not have a damage component.",
+			gameObject.name
+		);
+		Debug.AssertFormat(
+			defensiveModsSource != null,
+			"CombatEffectResolver on [{0}] does not have a damage component.",
+			gameObject.name
+		);
 	}
 
 	public void ResolvePayload(
@@ -25,7 +37,7 @@ public class CombatEffectResolver : MonoBehaviour {
 		IReadOnlyList<CombatEffect> payload,
 		IReadOnlyList<TargetLocation2D> hits
 	) {
-		var baseMods = DefensiveModsSource.BaseMods;
+		var baseMods = defensiveModsSource.BaseMods;
 		foreach (var hit in hits) ApplyPayloadAtHit(origin, payload, hit, baseMods);
 	}
 
@@ -34,7 +46,7 @@ public class CombatEffectResolver : MonoBehaviour {
 		IReadOnlyList<CombatEffect> payload,
 		TargetLocation2D hit
 	) {
-		var baseMods = DefensiveModsSource.BaseMods;
+		var baseMods = defensiveModsSource.BaseMods;
 		ApplyPayloadAtHit(origin, payload, hit, baseMods);
 	}
 
@@ -45,7 +57,7 @@ public class CombatEffectResolver : MonoBehaviour {
 		ModsByKind baseMods
 	) {
 		// Hit collider does not have any locational modifiers
-		var locationalModSource = DefensiveModsSource.ModsAtLocation(hit.collider.GetInstanceID());
+		var locationalModSource = defensiveModsSource.ModsAtLocation(hit.collider.GetInstanceID());
 		if (locationalModSource != null) {
 			var globalLocationMods = locationalModSource.Global;
 			foreach (var effect in payload) {

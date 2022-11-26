@@ -1,41 +1,46 @@
 ﻿using managers;
-
 using UnityEngine;
 
 namespace sfx {
 public class Spawner : MonoBehaviour {
-	public void SpawnWorld(GameObject spawnable) {
-		if (spawnable == null) return;
+	public GameObject SpawnWorld(GameObject spawnable) {
+		if (spawnable == null) return null;
 		var tfm = transform;
-		Instantiate(spawnable, tfm.position, tfm.rotation)
-			.SetActive(true);
+		var go = Instantiate(spawnable, tfm.position, tfm.rotation);
+		go.SetActive(true);
+		return go;
 	}
 
-	public void SpawnWorld(Provider provider) {
-		SpawnFromProvider(provider, true);
+	public GameObject SpawnWorld(Provider provider) {
+		return SpawnFromProvider(provider, true);
 	}
 
-	public void SpawnLocal(GameObject spawnable) {
-		if (spawnable == null) return;
-		Instantiate(spawnable, transform)
-			.SetActive(true);
+	public GameObject SpawnLocal(GameObject spawnable) {
+		if (spawnable == null) return null;
+		var go = Instantiate(spawnable, transform);
+		go.SetActive(true);
+		return go;
 	}
 
-	public void SpawnLocal(Provider provider) {
-		SpawnFromProvider(provider, false);
+	public GameObject SpawnLocal(Provider provider) {
+		return SpawnFromProvider(provider, false);
 	}
 
-	private void SpawnFromProvider(Provider provider, bool worldSpace) {
-		if (provider == null) return;
+	private GameObject SpawnFromProvider(Provider provider, bool worldSpace) {
+		if (ReferenceEquals(provider, null))
+			return null;
 		var spawnable = provider.Next();
-		if (spawnable == null) return;
+		if (ReferenceEquals(spawnable, null))
+			return null;
 
 		var tfmThis = transform;
 		var tfmOther = spawnable.transform;
-		tfmOther.SetParent(worldSpace ? null : tfmOther);
+		if (worldSpace)
+			tfmOther.SetParent(null);
 		tfmOther.position = tfmThis.position;
 		tfmOther.rotation = tfmThis.rotation;
 		spawnable.SetActive(true);
+		return spawnable;
 	}
 }
 }

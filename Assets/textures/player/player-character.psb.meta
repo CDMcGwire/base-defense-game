@@ -90,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: player-character.psb copy
@@ -166,6 +167,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -98, y: -8}
+    spritePosition: {x: 0, y: 0}
   - name: player-character.psb
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -541,6 +543,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -245, y: 243}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones:
     - name: root

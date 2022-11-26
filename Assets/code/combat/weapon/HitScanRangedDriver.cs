@@ -11,9 +11,5 @@ public class HitScanRangedDriver : RangedAttackDriver {
 	protected override void OnFire() {
 		targeter.Activate();
 	}
-
-	private void LateUpdate() {
-		Weapon.ClearTargetingMemory();
-	}
 }
 }

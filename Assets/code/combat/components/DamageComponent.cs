@@ -62,7 +62,7 @@ public class DamageComponent : MonoBehaviour {
 
 	/// <summary>Method called by external systems to apply damage.</summary>
 	/// <param name="amount">The amount of damage to deal.</param>
-	public void Deal(long amount) {
+	public DamageReport Deal(long amount) {
 		DamageReport damageReport;
 		damageReport.lastHealth = CurrentHealth;
 		damageReport.maxHealth = maxHealth;
@@ -74,6 +74,8 @@ public class DamageComponent : MonoBehaviour {
 		onDamaged.Invoke(damageReport);
 		if (damageReport.WasDestroyed)
 			onDestroyed.Invoke(damageReport);
+
+		return damageReport;
 	}
 
 	/// <summary>Debug method that can be called to log a damage report.</summary>

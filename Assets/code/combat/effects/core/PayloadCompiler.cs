@@ -2,6 +2,7 @@
 
 namespace combat.effects.core {
 public static class PayloadCompiler {
+	// ReSharper disable Unity.PerformanceAnalysis : It's not actually called more than once per object at most.
 	/// <summary>
 	///   Applies the rules for a payload chain to an enumerable collection of payload
 	///   objects and stores the results in the supplied list. Storing in the list is

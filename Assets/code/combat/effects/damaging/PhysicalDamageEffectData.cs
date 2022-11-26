@@ -23,8 +23,13 @@ public class PhysicalDamageEffect : CombatEffect {
 	}
 
 	protected override void ApplyEffect(CombatEffectResolver resolver, Combatant origin, TargetLocation2D hit) {
-		if (resolver.DamageComponent != null)
-			resolver.DamageComponent.Deal(amount.Current);
+		if (ReferenceEquals(resolver.DamageComponent, null))
+			return;
+		var report = resolver.DamageComponent.Deal(amount.Current);
+		
+		var hitSfxGenerator = resolver.HitSfxGenerator;
+		if (!ReferenceEquals(hitSfxGenerator, null))
+			hitSfxGenerator.PlayEffect(hit, report);
 	}
 
 	public override CombatEffect Modify(CombatMod mod) {

@@ -16,6 +16,7 @@ public class CombatModSource : ISerializationCallbackReceiver {
 #pragma warning restore 0649
 	
 	private readonly Dictionary<string, List<CombatMod>> modsByKind = new();
+	private bool initialized = false;
 
 	public string Id => id;
 
@@ -24,6 +25,8 @@ public class CombatModSource : ISerializationCallbackReceiver {
 	public void OnBeforeSerialize() { }
 
 	public void OnAfterDeserialize() {
+		if (initialized)
+			return;
 		foreach (var entry in modData) {
 			var mod = entry.Value;
 			if (mod == null) continue;
@@ -31,6 +34,7 @@ public class CombatModSource : ISerializationCallbackReceiver {
 				modsByKind[mod.Kind] = new List<CombatMod>();
 			modsByKind[mod.Kind].Add(mod);
 		}
+		initialized = true;
 	}
 }
 }

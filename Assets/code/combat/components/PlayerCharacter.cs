@@ -17,7 +17,7 @@ public class PlayerCharacter : Combatant {
 	private PlayerLoadoutService loadout;
 	private Weapon currentWeapon;
 
-	private readonly Dictionary<string, Weapon> spawnedWeapons = new Dictionary<string, Weapon>();
+	private readonly Dictionary<string, Weapon> spawnedWeapons = new();
 
 	public void Initialize(PlayerLoadoutService playerLoadout, Camera playerCamera) {
 		aimer = GetComponent<PlayerInputAimer>();

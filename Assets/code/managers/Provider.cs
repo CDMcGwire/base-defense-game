@@ -2,6 +2,6 @@
 
 namespace managers {
 public abstract class Provider : MonoBehaviour {
-	public abstract GameObject Next();
+	public abstract GameObject Next(bool canSteal = false);
 }
 }

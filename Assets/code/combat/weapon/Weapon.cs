@@ -12,16 +12,13 @@ using UnityEngine.InputSystem;
 namespace combat.weapon {
 public class Weapon : MonoBehaviour {
 #pragma warning disable 0649
-	[SerializeField] private List<string> filteredTargetTypes = new List<string>();
+	[SerializeField] private List<string> filteredTargetTypes = new();
 	[SerializeField] private AttackDriver driver;
-	[SerializeField] private WeaponEvent onAttackEnd = new WeaponEvent();
+	[SerializeField] private WeaponEvent onAttackEnd = new();
 	[SerializeField] private Transform muzzlePoint;
 #pragma warning restore 0649
 	
-	private readonly HashSet<int> activeTargets = new HashSet<int>();
-	private readonly HashSet<int> ignoredTargets = new HashSet<int>();
-
-	private readonly HashSet<int> targetFilter = new HashSet<int>();
+	private readonly HashSet<int> targetFilter = new();
 
 	public Combatant Owner { get; set; }
 	public Transform MuzzlePoint => muzzlePoint;
@@ -48,33 +45,11 @@ public class Weapon : MonoBehaviour {
 	}
 
 	public void HandleTarget(TargetLocation2D target, IReadOnlyList<CombatEffect> payload) {
-		// Target was already reported once since the last refresh and was ignored.
-		if (ignoredTargets.Contains(target.id)) return;
 		// Check if the target has a resolver. If not, ignore it.
 		var resolver = GetTargetResolver(target);
-		if (ReferenceEquals(resolver, null)) {
-			ignoredTargets.Add(target.id);
+		if (ReferenceEquals(resolver, null))
 			return;
-		}
-		// Check if the resolver was already filtered or was already targeted.
-		var resolverId = resolver.GetInstanceID();
-		if (ignoredTargets.Contains(resolverId)
-		    || activeTargets.Contains(resolverId))
-			return;
-		// Check if it's a filtered target type.
-		var typeHash = resolver.tag.GetHashCode();
-		if (targetFilter.Contains(typeHash)) {
-			ignoredTargets.Add(resolverId);
-			return;
-		}
-		// Add to list of active targets for this refresh cycle and resolve the payload.
-		activeTargets.Add(resolver.GetInstanceID());
 		resolver.ResolvePayload(Owner, payload, target);
-	}
-
-	public void ClearTargetingMemory() {
-		activeTargets.Clear();
-		ignoredTargets.Clear();
 	}
 
 	private static CombatEffectResolver GetTargetResolver(TargetLocation2D hit) {

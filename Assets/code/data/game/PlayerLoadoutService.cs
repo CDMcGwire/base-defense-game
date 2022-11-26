@@ -14,12 +14,12 @@ namespace data.game {
 public class PlayerLoadoutService : DataService<PlayerLoadoutData>, IPersistableService {
 #pragma warning disable 0649
 	[SerializeField] private PlayerCharacter initialPlayerCharacter;
-	[SerializeField] private List<InventoryItem> initialOwnedItems = new List<InventoryItem>();
+	[SerializeField] private List<InventoryItem> initialOwnedItems = new();
 	[SerializeField] private int initialWeaponSlots = 3;
 	[SerializeField] private int initialActiveWeaponSlot = 0;
-	[SerializeField] private List<InventoryItem> initialEquippedWeapons = new List<InventoryItem>();
+	[SerializeField] private List<InventoryItem> initialEquippedWeapons = new();
 	[SerializeField] private int initialToolSlots = 2;
-	[SerializeField] private List<InventoryItem> initialEquippedTools = new List<InventoryItem>();
+	[SerializeField] private List<InventoryItem> initialEquippedTools = new();
 #pragma warning restore 0649
 
 	public IRxReadonlyVal<PlayerCharacter> PlayerCharacter => Data.PlayerCharacter;
