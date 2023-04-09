@@ -1058,6 +1058,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f2f5c7ac7b4bf7930e99fca99982ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageComponent: {fileID: 0}
+  defensiveModsSource: {fileID: 0}
+  hitSfxGenerator: {fileID: 0}
 --- !u!114 &522374533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,7 +1816,7 @@ GameObject:
   m_IsActive: 0
 --- !u!95 &936668427
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1830,7 +1833,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &936668428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1942,7 +1946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &943037073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2751,7 +2755,7 @@ GameObject:
   m_IsActive: 0
 --- !u!95 &1236462942
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2768,7 +2772,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1236462943
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1427,8 +1427,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1235815621}
         m_TargetAssemblyTypeName: combat.weapon.Weapon, Assembly-CSharp
-        m_MethodName: BeginAttack
-        m_Mode: 1
+        m_MethodName: HandleInput
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1439,22 +1439,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 569cd417-af60-47e1-8e06-90dbd76e5b93
     m_ActionName: Player/TriggerPull[/Mouse/leftButton,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1235815621}
-        m_TargetAssemblyTypeName: combat.weapon.Weapon, Assembly-CSharp
-        m_MethodName: ReleaseAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 63c1b6aa-4215-463c-b083-a8c25e78561b
-    m_ActionName: Player/TriggerRelease[/Mouse/leftButton,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 3fc4dbd3-a235-4681-b172-9c1814d02af4
