@@ -1,3 +1,5 @@
+_Development of this game has moved to a private repository, but this remains for record keeping._
+
 # base-defense-game
 
 A 2D game in the style of the old flash classic (at least to Kongregate users) Elona Shooter made in the Unity engine.
